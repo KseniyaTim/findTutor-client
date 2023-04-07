@@ -1,0 +1,18 @@
+.formWrapper {
+  padding-top: 1rem;
+  width: 25rem;
+  text-align: center;
+direction: rtl;
+}
+
+.formTitle {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+  display: block;
+}
+.formField {
+  padding-bottom: 1rem;
+}
+.field{
+    color: crimson;
+}

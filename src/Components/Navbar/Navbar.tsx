@@ -1,18 +1,29 @@
-// mui
-import AppBar from "@mui/material/AppBar";
-
 //css
 import "./Navbar.css";
 
+//routing
+import { HOME_ROUTE, LOGIN_ROUTE } from "../../consts/routeConsts";
+import { useHistory } from "react-router-dom";
+
+
 const Navbar = () => {
+  let history = useHistory();
+
   return (
     <div>
-      <AppBar position="static" sx={{ height: "4rem", bgcolor: "crimson" }}>
-        <div className="navbarElements">
-          <div>Find A Tutor</div>
-          
+      <div className="navbarElements">
+        <div id="navbarTitle"  onClick={() => {
+            history.push(HOME_ROUTE);
+          }}>למד לי</div>
+        <div 
+            id="navbarLogin"
+          onClick={() => {
+            history.push(LOGIN_ROUTE);
+          }}
+        >
+          התחבר
         </div>
-      </AppBar>
+      </div>
     </div>
   );
 };

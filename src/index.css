@@ -3,5 +3,6 @@
 
 body {
   margin: 0;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Varela Round", sans-serif;
+  direction: rtl;
 }
