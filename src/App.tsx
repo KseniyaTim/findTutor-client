@@ -19,7 +19,7 @@ function App() {
     stylisPlugins: [prefixer, rtlPlugin],
   });
   return (
-    <div className="App">
+    <div className="Apps">
       <CacheProvider value={cacheRtl}>
         <Navbar />
         <Switch>
