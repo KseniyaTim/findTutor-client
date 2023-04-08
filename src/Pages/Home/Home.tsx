@@ -4,7 +4,7 @@ import { FC } from "react";
 import "./Home.css";
 
 //components
-import GenericSearchField from "../../Generics/GenericSearchField/GenericSearchField";
+import GenericSearchField from "../../Components/Generics/GenericSearchField/GenericSearchField";
 
 //consts
 import { CITIES } from "../../consts/cities";

@@ -2,18 +2,18 @@
 import  { FC } from "react";
 
 //components
-import GenericFeild from "../../Generics/GenericForm/GenericForm";
 
 //consts
 import { LOGIN_HEADERS } from "../../consts/loginHeaders";
 
 //css
 import './Login.css'
+import GenericForm from "../../Components/Generics/GenericForm/GenericForm";
 
 const Login: FC = () => {
   return (
     <div className="loginWrapper">
-      <GenericFeild
+      <GenericForm
         formTitle={"בוא נתחבר"}
         formFields={LOGIN_HEADERS}
         buttonTitle={"התחבר"}
