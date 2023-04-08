@@ -12,16 +12,16 @@ import GenericField from "../GenericField/GenericField";
 
 const GenericForm: FC<IGenericForm> = ({
   formTitle,
-  formFeilds,
+  formFields,
   buttonTitle,
 }) => {
   return (
     <div className="formWrapper">
       <div>
         <div className="formTitle">{formTitle}</div>
-        {formFeilds.map((element, index) => (
+        {formFields.map((element, index) => (
           <div className="formField" key={index}>
-            <GenericField label={element} />
+            <GenericField label={element.label} />
           </div>
         ))}
         <Button variant="contained" style={{ backgroundColor: "crimson" }}>

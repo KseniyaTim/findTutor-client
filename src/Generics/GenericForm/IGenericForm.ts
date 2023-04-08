@@ -1,5 +1,7 @@
+import { IGenericField } from "../GenericField/IGenericField"
+
 export interface IGenericForm {
     formTitle: string
-    formFeilds: string[]
+    formFields: IGenericField[]
     buttonTitle: string
 }

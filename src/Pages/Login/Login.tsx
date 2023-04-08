@@ -15,7 +15,7 @@ const Login: FC = () => {
     <div className="loginWrapper">
       <GenericFeild
         formTitle={"בוא נתחבר"}
-        formFeilds={LOGIN_HEADERS}
+        formFields={LOGIN_HEADERS}
         buttonTitle={"התחבר"}
       />
     </div>
