@@ -12,8 +12,8 @@ const Navbar = () => {
 
   return (
     <div className="navbarElements">
-      {NAVBAR_HEADLINES.map((element) => (
-        <div id={element.id} className="navbarElement" onClick={() => { history.push(element.route); }}>{element.label}</div>
+      {NAVBAR_HEADLINES.map((element, index) => (
+        <div key={index} id={element.id} className="navbarElement" onClick={() => { history.push(element.route); }}>{element.label}</div>
       ))}
     </div>
   );

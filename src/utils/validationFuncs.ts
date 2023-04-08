@@ -1,5 +1,5 @@
 
-import { fieldsValidatorsManager } from '../Components/Generics/GenericField/IGenericField'
+import { IFieldValidator, fieldsValidatorsManager } from '../Components/Generics/GenericField/IGenericField'
 
 export const textFieldsFuncValidators: fieldsValidatorsManager = {
     checkLength: (textToCheck: string, maxLength: number): boolean => {
@@ -29,18 +29,16 @@ export const textFieldsFuncValidators: fieldsValidatorsManager = {
 
 };
 
-export const checkValidaitons = (textValue: string, validators: IFieldValidators[]) => {
+export const checkValidaitons = (textValue: string, validators: IFieldValidator[]) => {
     let isTextValid = true, validFuncIndex
     for (
         validFuncIndex = 0;
         validFuncIndex < validators.length && isTextValid;
         validFuncIndex++
     ) {
-        isTextValid = textFieldsFuncValidators[validators[validFuncIndex].functionName](
+        isTextValid = textFieldsFuncValidators[validators[validFuncIndex].funcName](
             textValue,
             validators[validFuncIndex].param1,
-            validators[validFuncIndex].param2,
-            validators[validFuncIndex].param3,
         );
     }
     return { isTextValid, validFuncIndex }

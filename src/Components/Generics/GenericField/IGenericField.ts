@@ -17,5 +17,11 @@ export type fieldsValidatorsManager = { [literal in FIELDS_VALIDATORS_FUNCTIONS_
 
 export interface IGenericField {
     label: string
-    validationFuncs?: FIELDS_VALIDATORS_FUNCTIONS_LITERALS[]
+    validationFuncs?: IFieldValidator[]
+}
+
+export interface IFieldValidator {
+    funcName: FIELDS_VALIDATORS_FUNCTIONS_LITERALS
+    param1?: any
+    errorMessage: string
 }

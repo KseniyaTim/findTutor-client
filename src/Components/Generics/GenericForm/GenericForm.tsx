@@ -21,7 +21,7 @@ const GenericForm: FC<IGenericForm> = ({
         <div className="formTitle">{formTitle}</div>
         {formFields.map((element, index) => (
           <div className="formField" key={index}>
-            <GenericField label={element.label} />
+            <GenericField {...element} />
           </div>
         ))}
         <Button variant="contained" style={{ backgroundColor: "crimson" }}>
