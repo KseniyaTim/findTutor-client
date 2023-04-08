@@ -10,8 +10,8 @@ const GenericSearchField: FC<IGenericSearchField> = ({ options, label }) => {
         disablePortal
         id="combo-box-demo"
         options={options}
-        sx={{ width: 400,  textAlign: 'left'}}
-        renderInput={(params) => <TextField {...params} label={label} sx={{ height: '3rem'}}/>}
+        sx={{  textAlign: 'left'}}
+        renderInput={(params) => <TextField  {...params} label={label} sx={{ height: '3rem',borderRadius: '25px'}}/>}
       />
     </div>
   );

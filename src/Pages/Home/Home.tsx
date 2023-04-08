@@ -11,19 +11,25 @@ import { CITIES } from "../../consts/cities";
 import { SUBJECTS } from "../../consts/subjects";
 
 //mui
-import { Button } from "@mui/material";
+import { Grid } from "@mui/material";
 
 const Home: FC = () => {
   return (
     <div className="searchFieldsWrapper">
-      <GenericSearchField options={CITIES} label="עיר" />
-      <GenericSearchField options={SUBJECTS} label="מקצוע" />
-      <Button
-        variant="contained"
-        sx={{ backgroundColor: "crimson", width: 300, height: "3rem" }}
-      >
-        חפש
-      </Button>
+      <Grid container spacing={2} id="searchContainer">
+        <Grid item xs={10} md={4}>
+          <GenericSearchField options={CITIES} label="עיר" />
+        </Grid>
+        <Grid item xs={10} md={4}>
+          <GenericSearchField options={SUBJECTS} label="מקצוע" />
+        </Grid>
+        <Grid item xs={5} md={2}>
+          <div className="searchButton">
+            חפש
+          </div>
+        </Grid>
+      </Grid>
+
     </div>
   );
 };

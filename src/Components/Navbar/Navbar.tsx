@@ -4,6 +4,7 @@ import "./Navbar.css";
 //routing
 import { HOME_ROUTE, LOGIN_ROUTE } from "../../consts/routeConsts";
 import { useHistory } from "react-router-dom";
+import { NAVBAR_HEADLINES } from "./NavbarData";
 
 
 const Navbar = () => {
@@ -11,8 +12,9 @@ const Navbar = () => {
 
   return (
     <div className="navbarElements">
-      <div id="navbarTitle" onClick={() => { history.push(HOME_ROUTE); }}>למד לי</div>
-      <div id="navbarLogin" onClick={() => { history.push(LOGIN_ROUTE); }}>התחבר</div>
+      {NAVBAR_HEADLINES.map((element) => (
+        <div id={element.id} className="navbarElement" onClick={() => { history.push(element.route); }}>{element.label}</div>
+      ))}
     </div>
   );
 };
