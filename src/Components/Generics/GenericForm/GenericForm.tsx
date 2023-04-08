@@ -27,7 +27,6 @@ const GenericForm: FC<IGenericForm> = ({
         <Button variant="contained" style={{ backgroundColor: "crimson" }}>
           {buttonTitle}
         </Button>
-        <div>שכחתי סיסמה</div>
       </div>
     </div>
   );

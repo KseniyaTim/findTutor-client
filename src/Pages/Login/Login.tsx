@@ -1,5 +1,5 @@
 //react
-import  { FC } from "react";
+import { FC } from "react";
 
 //components
 
@@ -12,13 +12,19 @@ import GenericForm from "../../Components/Generics/GenericForm/GenericForm";
 
 const Login: FC = () => {
   return (
-    <div className="loginWrapper">
-      <GenericForm
-        formTitle={"בוא נתחבר"}
-        formFields={LOGIN_HEADERS}
-        buttonTitle={"התחבר"}
-      />
+    <div>
+      <div className="loginWrapper">
+        <GenericForm
+          formTitle={"בוא נתחבר"}
+          formFields={LOGIN_HEADERS}
+          buttonTitle={"התחבר"}
+        />
+      </div>
+      
+      <div id="forgotPassword">שכחתי סיסמה</div>
+
     </div>
+
   );
 };
 
