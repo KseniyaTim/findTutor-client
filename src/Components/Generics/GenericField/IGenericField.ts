@@ -5,7 +5,6 @@ export enum FIELDS_VALIDATORS_FUNCTIONS {
     onlyDigits = 'onlyDigits',
     onlyHebrewLetters = 'onlyHebrewLetters',
     checkEmail = 'checkEmail',
-    required = 'required',
     phoneNumber = 'phoneNumber',
 }
 
@@ -18,6 +17,7 @@ export type fieldsValidatorsManager = { [literal in FIELDS_VALIDATORS_FUNCTIONS_
 export interface IGenericField {
     label: string
     validationFuncs?: IFieldValidator[]
+    required?: boolean
 }
 
 export interface IFieldValidator {
