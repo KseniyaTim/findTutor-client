@@ -1,0 +1,12 @@
+#registerWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+#registerTitle {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    display: block;
+}
