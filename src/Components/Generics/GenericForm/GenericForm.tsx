@@ -15,6 +15,11 @@ const GenericForm: FC<IGenericForm> = ({
   formFields,
   buttonTitle,
 }) => {
+
+  const handleLogin = () => {
+    
+  }
+
   return (
     <div className="formWrapper">
       <div>
@@ -24,7 +29,7 @@ const GenericForm: FC<IGenericForm> = ({
             <GenericField {...element} />
           </div>
         ))}
-        <Button variant="contained" style={{ backgroundColor: "crimson" }}>
+        <Button onClick={() => { handleLogin() }} variant="contained" style={{ backgroundColor: "crimson" }}>
           {buttonTitle}
         </Button>
       </div>
