@@ -1,34 +1,42 @@
 import { TextField } from '@mui/material';
-import { FC, useState } from 'react';
-import { IGenericField } from './IGenericField';
+import { FC, useState,useEffect } from 'react';
+import { IGenericFieldComp } from './IGenericField';
 import { checkValidaitons } from '../../../utils/validationFuncs';
 
 import './GenericField.css'
 
-const GenericField: FC<IGenericField> = ({ label, validationFuncs }) => {
+const GenericField: FC<IGenericFieldComp> = ({ label, validationFuncs, required, fieldIndex, updateFieldState,value,checkRequired }) => {
 
     const [errorMsg, setErrorMsg] = useState("");
-    const [isFieldValid, setIsFieldValid] = useState(false);
 
     const handleChange = (text: string) => {
         if (!text) {
             setErrorMsg("")
+            updateFieldState(fieldIndex, !required,text)
             return
         }
-        let isValid = true
         if (validationFuncs) {
             const { isTextValid, validFuncIndex } = checkValidaitons(text, validationFuncs)
-            isValid = isTextValid
-            console.log(isTextValid, validFuncIndex)
             if (!isTextValid) {
                 setErrorMsg(validationFuncs![validFuncIndex - 1].errorMessage)
+                updateFieldState(fieldIndex, false,text)
+                return
             }
         }
+        setErrorMsg("")
+        updateFieldState(fieldIndex, true,text)
+    }
 
-        if (isValid) {
-            setErrorMsg("")
+    useEffect(() => {
+    if (checkRequired !== 0) {
+        if (!value && required) {
+            setErrorMsg("שדה חובה")
+            return
         }
     }
+    
+    }, [checkRequired])
+    
 
     return (
         <div>
