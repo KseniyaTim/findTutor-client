@@ -6,7 +6,10 @@ export const LOGIN_HEADERS: IGenericField[] = [
         validationFuncs: [
             { funcName: 'checkEmail', errorMessage: 'כתובת דואר אלקטרוני לא תקינה' },
         ],
-        required: true
+        required: true,
+        value: '',
+        isValid: false
+
     },
     {
         label: 'סיסמה',
@@ -17,6 +20,8 @@ export const LOGIN_HEADERS: IGenericField[] = [
                 errorMessage: 'סיסמה חייבת להכיל לפחות 8 תווים'
             }
         ],
-        required: true
+        required: true,
+        value: '',
+        isValid: false
     }
 ]
