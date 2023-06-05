@@ -1,14 +1,17 @@
 //react
 import { FC, useState } from "react";
 
+// interfaces
 import { IGenericField } from "../../Components/Generics/GenericField/IGenericField";
-
-//consts
-import { LOGIN_HEADERS } from "../../consts/loginHeaders";
 
 //css
 import './Login.css'
+
+// components
 import GenericForm from "../../Components/Generics/GenericForm/GenericForm";
+
+// consts
+import { LOGIN_HEADERS } from "./LoginData";
 
 const Login: FC = () => {
 

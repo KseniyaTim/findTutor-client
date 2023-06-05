@@ -24,7 +24,6 @@ function App() {
   return (
     <div className="App">
       <CacheProvider value={cacheRtl}>
-        <Navbar />
         <Switch>
           {RouteMaster.map((routeElement, index) => (
             <Route

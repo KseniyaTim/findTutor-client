@@ -1,4 +1,4 @@
-import { IGenericField } from "../Components/Generics/GenericField/IGenericField";
+import { IGenericField } from "../../Components/Generics/GenericField/IGenericField";
 
 export const LOGIN_HEADERS: IGenericField[] = [
     {
@@ -9,7 +9,6 @@ export const LOGIN_HEADERS: IGenericField[] = [
         required: true,
         value: '',
         isValid: false
-
     },
     {
         label: 'סיסמה',
