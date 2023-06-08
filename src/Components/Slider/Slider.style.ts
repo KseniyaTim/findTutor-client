@@ -1,9 +1,25 @@
 import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-export const SingleCard = styled(Grid)({
-    height: '200px',
-    backgroundColor: 'lightblue',
+import Programming from '../../assets/images/landingSlider/Programming.png'
+
+export const SliderSingleImg = styled('div')({
+    height: '250px',
+    width: '100%',
+    transition: 'opacity .3s ease-in-out',
+    display: 'flex',
+    alignItems: 'flex-start',
+    backgroundImage: `url(${Programming})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    borderRadius: '25px',
+});
+
+export const SliderSingleTitle = styled('div')({
+    marginTop: ' 10px',
+    marginRight: '10px',
+    fontWeight: 'bolder',
+    fontSize: '1.5rem',
 });
 
 export const SliderContainer = styled(Grid)({
