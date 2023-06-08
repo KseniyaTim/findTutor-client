@@ -1,5 +1,12 @@
 import Programming from '../../assets/images/landingSlider/Programming.png'
 import Math from '../../assets/images/landingSlider/Math.jpg'
+import Psychometry from '../../assets/images/landingSlider/Psychometri.jpg'
+import France from '../../assets/images/landingSlider/France.jpg'
+import Arabic from '../../assets/images/landingSlider/Arabic.webp'
+import English from '../../assets/images/landingSlider/english.jpg'
+import Music from '../../assets/images/landingSlider/music.avif'
+import Art from '../../assets/images/landingSlider/art.jpg'
+
 
 export const SliderData = [
     {
@@ -12,26 +19,26 @@ export const SliderData = [
     },
     {
         label: 'פסיכומטרי',
-        imgSrc: Programming
+        imgSrc: Psychometry
     },
     {
         label: 'צרפתית',
-        imgSrc: Math
+        imgSrc: France
     },
     {
         label: 'אנגלית',
-        imgSrc: Programming
+        imgSrc: English
     },
     {
         label: 'ערבית',
-        imgSrc: Math
+        imgSrc: Arabic
     },
     {
         label: 'מוזיקה',
-        imgSrc: Programming
+        imgSrc: Music
     },
     {
         label: 'אמנות',
-        imgSrc: Math
+        imgSrc: Art
     },
 ]
