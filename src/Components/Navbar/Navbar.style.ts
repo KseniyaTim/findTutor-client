@@ -10,7 +10,7 @@ export const NavbarContainer = styled('div')({
     display: 'flex',
     justifyContent: 'right',
     color: 'white',
-    fontSize: '1rem'
+    fontSize: '1rem',
 });
 
 export const NavbarElement = styled('div')({

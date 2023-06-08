@@ -2,41 +2,47 @@ import React, { useState } from 'react';
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
 
 import * as S from './Slider.style'
-
-const cards = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'];
+import { SliderData } from './Slidter.data';
+import { Grid } from '@mui/material';
 
 const CardSlider: React.FC = () => {
     const [currIndex, setCurrIndex] = useState(0);
-    const [currCards, setCurrCards] = useState(cards.slice(0, 5));
+    const [currCards, setCurrCards] = useState(SliderData.slice(0, 5));
 
     const handleNext = () => {
-        if (currIndex === cards.length - 1) {
+        let z
+        if (currIndex === SliderData.length - 1) {
             setCurrIndex(0);
+            z = 0
         } else {
             setCurrIndex(currIndex + 1);
+            z = currIndex + 1
         }
-        currArray()
+        currArray(z)
     }
 
     const handlePrev = () => {
+        let z
         if (currIndex === 0) {
-            setCurrIndex(cards.length - 1);
+            setCurrIndex(SliderData.length - 1);
+            z = SliderData.length - 1
         } else {
             setCurrIndex(currIndex - 1);
+            z = currIndex - 1
         }
-        currArray()
+        currArray(z)
     }
 
-    const currArray = () => {
+    const currArray = (shahar: number) => {
 
         setCurrCards(prev => {
-            let endIndex = currIndex + 5;
-            let y = JSON.parse(JSON.stringify(cards));
+            let endIndex = shahar + 5;
+            let y = JSON.parse(JSON.stringify(SliderData));
             if (endIndex > y.length) {
                 endIndex = endIndex - y.length;
-                return y.slice(currIndex).concat(y.slice(0, endIndex));
+                return y.slice(shahar).concat(y.slice(0, endIndex));
             } else {
-                return y.slice(currIndex, endIndex);
+                return y.slice(shahar, endIndex);
             }
         });
     }
@@ -50,9 +56,11 @@ const CardSlider: React.FC = () => {
                 </S.SliderArrow>
                 {
                     currCards.map((element, index) => (
-                        <S.SingleCard container item xs={2}>
-                            {element}
-                        </S.SingleCard>
+                        <Grid container item xs={2}>
+                            <S.SliderSingleImg >
+                                <S.SliderSingleTitle>{element.label}</S.SliderSingleTitle>
+                            </S.SliderSingleImg>
+                        </Grid>
                     ))
                 }
 
