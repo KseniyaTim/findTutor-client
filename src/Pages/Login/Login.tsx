@@ -1,18 +1,19 @@
 //react
 import { FC, useState } from "react";
 
-import { IGenericField } from "../../Components/Generics/GenericField/IGenericField";
-
-//consts
-import { LOGIN_HEADERS } from "../../consts/loginHeaders";
+// interfaces
 
 //css
 import './Login.css'
-import GenericForm from "../../Components/Generics/GenericForm/GenericForm";
+
+// components
+
+// consts
+import { LOGIN_HEADERS } from "./LoginData";
 
 const Login: FC = () => {
 
-  const [loginFields, setLoginFields] = useState<IGenericField[]>(LOGIN_HEADERS)
+  const [loginFields, setLoginFields] = useState(LOGIN_HEADERS)
 
   const handleLogin = () => {
     
@@ -20,13 +21,7 @@ const Login: FC = () => {
   return (
     <div>
       <div className="loginWrapper">
-        <GenericForm
-          formTitle={"בוא נתחבר"}
-          formFields={loginFields}
-          setFormFields={setLoginFields}
-          buttonTitle={"התחבר"}
-          handleButtonFunc={handleLogin}
-        />
+      sas
       </div>
 
       <div id="forgotPassword">שכחתי סיסמה</div>

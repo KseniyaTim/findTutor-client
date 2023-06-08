@@ -3,7 +3,7 @@ import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "../../consts/routeConst
 export const NAVBAR_HEADLINES = [
     {
         label: 'למד לי',
-        id: 'navbarTitle',
+        id: 'navbarLogin',
         route: HOME_ROUTE
     },
     {
