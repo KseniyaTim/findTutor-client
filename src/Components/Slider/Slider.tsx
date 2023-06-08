@@ -4,6 +4,7 @@ import { ArrowBack, ArrowForward } from '@mui/icons-material';
 import * as S from './Slider.style'
 import { SliderData } from './Slidter.data';
 import { Grid } from '@mui/material';
+import './Slider.css'
 
 const CardSlider: React.FC = () => {
     const [currIndex, setCurrIndex] = useState(0);
@@ -50,7 +51,7 @@ const CardSlider: React.FC = () => {
     return (
         <>
             <S.SliderTitle>מקצועות פופולריים</S.SliderTitle>
-            <S.SliderContainer container spacing={0}>
+            <S.SliderContainer container spacing={0} className='slides'>
                 <S.SliderArrow onClick={handlePrev} >
                     <ArrowForward />
                 </S.SliderArrow>
