@@ -10,7 +10,7 @@ export const NavbarContainer = styled('div')({
     display: 'flex',
     justifyContent: 'right',
     color: 'white',
-    fontSize: '1rem'
+    fontSize: '1rem',
 });
 
 export const NavbarElement = styled('div')({
@@ -22,7 +22,7 @@ export const CenterContainer = styled('div')({
     justifyContent: 'space-around',
     color: 'white',
     alignItems: 'center',
-    height: '400px'
+    height: '425px'
 });
 
 export const MainTitle = styled('div')({
