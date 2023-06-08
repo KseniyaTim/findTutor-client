@@ -22,7 +22,7 @@ export const CenterContainer = styled('div')({
     justifyContent: 'space-around',
     color: 'white',
     alignItems: 'center',
-    height: '400px'
+    height: '425px'
 });
 
 export const MainTitle = styled('div')({
