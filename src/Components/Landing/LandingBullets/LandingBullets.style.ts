@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 
 export const container = styled("div")({
-  backgroundColor: "whitesmoke",
+  backgroundColor: "#f1fdf7",
   display: "flex",
   alignItems: "center",
   justifyContent: 'space-around',

@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 
 //css
 import * as S from './LandingCenter.style'
+import './LandingCenter.css'
 
 //routing
 import { useHistory } from "react-router-dom";
@@ -44,7 +45,6 @@ const LandingCenter: FC = () => {
               במחיר שאתם צריכים
             </S.MainTitle>
             <Autocomplete
-              dir="rtl"
               value={fieldOfLearning}
               onChange={(event: any, value: string | null) => { setFieldOfLearning(value) }}
               onInputChange={(event: any, value: string) => { setIsFolDropdownOpen(value.length >= 2) }}
@@ -53,10 +53,12 @@ const LandingCenter: FC = () => {
               onClose={() => setIsFolDropdownOpen(false)}
               filterOptions={filterAutoCompleteOption}
               noOptionsText="לא נמצאו אפשרויות"
+              popupIcon={false}
               renderInput={(params) => (
-                <TextField
+                <S.AutocompleteInput
+                  dir="rtl"
                   {...params}
-                  label="מה בא לך ללמוד היום?"
+                  placeholder="מה בא לך ללמוד היום?"
                   fullWidth
                   sx={{
                     borderRadius: '25px',
@@ -65,6 +67,7 @@ const LandingCenter: FC = () => {
                     marginTop: '1rem',
                     justifyContent: 'right',
                     direction: 'rtl',
+                    padding: '0'
                   }}
                   onClick={() => setIsFolDropdownOpen(true)}
                 />
