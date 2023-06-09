@@ -6,8 +6,9 @@ export const SliderSingleImg = styled('img')({
     height: '345px',
     top: '0',
     webkiTransition: 'opacity .3s ease-in-out',
-    transition: 'opacity .3s ease-in-out',
     width: ' 100%',
+    transition: 'transform 0.3s ease, opacity 0.3s ease'
+
 });
 
 export const SliderSingleTitle = styled('div')({
@@ -23,6 +24,7 @@ export const SliderContainer = styled(Grid)({
     marginBottom: '3rem',
     justifyContent: 'space-around',
     alignItems: 'center',
+    transition: 'transform 0.3s ease, opacity 0.3s ease'
 });
 
 export const SliderArrow = styled(Grid)({

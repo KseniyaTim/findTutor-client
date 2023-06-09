@@ -22,7 +22,7 @@ export const CenterContainer = styled('div')({
     justifyContent: 'space-around',
     color: 'white',
     alignItems: 'center',
-    height: '425px'
+    height: '500px'
 });
 
 export const MainTitle = styled('div')({
@@ -48,7 +48,7 @@ export const LandingBtn = styled('div')({
     backgroundColor: 'rgb(63, 76, 119)',
     color: 'white',
     borderRadius: '25px',
-    height: '2rem',
+    height: '3rem',
     width: '12rem',
     display: 'flex',
     alignItems: 'center',

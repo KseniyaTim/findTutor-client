@@ -4,13 +4,13 @@ export const container = styled("div")({
   backgroundColor: "whitesmoke",
   display: "flex",
   alignItems: "center",
-  padding: "2rem 0 2rem 0 ",
+  justifyContent: 'space-around',
+  paddingBlock: '3rem'
 });
 
 export const title = styled("div")({
-  fontSize: "2.3rem",
-  color: "GrayText",
-  paddingRight: "2rem",
+  fontSize: "2rem",
+  paddingBottom: '1.5rem',
 });
 
 export const AllBulletWrapper = styled("div")({
