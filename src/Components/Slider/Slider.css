@@ -1,38 +1,29 @@
-
- .slides {
+.card-container {
     display: flex;
-    animation: slideAnimation 10s linear infinite;
-    height: 100%;
+    overflow-x: hidden;
+    transition: transform 0.3s ease;
   }
-
   
-  @keyframes slideAnimation {
-    0% {
-      transform: translateY(0);
-    }
-    20% {
-      transform: translateY(0);
-    }
-    25% {
-      transform: translateY(-100%);
-    }
-    45% {
-      transform: translateY(-100%);
-    }
-    50% {
-      transform: translateY(-200%);
-    }
-    70% {
-      transform: translateY(-200%);
-    }
-    75% {
-      transform: translateY(-300%);
-    }
-    95% {
-      transform: translateY(-300%);
-    }
-    100% {
-      transform: translateY(0);
-    }
+  .card {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+  
+  .arrow-container {
+    margin-top: 20px;
+  }
+  
+  button {
+    font-size: 20px;
+    padding: 5px 10px;
+    margin: 0 5px;
   }
   

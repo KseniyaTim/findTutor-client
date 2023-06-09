@@ -2,11 +2,12 @@ import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const SliderSingleImg = styled('img')({
-    height: '250px',
-    width: '100%',
+    borderRadius: '4px',
+    height: '345px',
+    top: '0',
+    webkiTransition: 'opacity .3s ease-in-out',
     transition: 'opacity .3s ease-in-out',
-    borderRadius: '25px',
-    cursor: 'pointer',
+    width: ' 100%',
 });
 
 export const SliderSingleTitle = styled('div')({

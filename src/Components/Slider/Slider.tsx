@@ -51,17 +51,17 @@ const CardSlider: React.FC = () => {
     return (
         <>
             <S.SliderTitle>מקצועות פופולריים</S.SliderTitle>
-            <S.SliderContainer container spacing={0} className='slides'>
+            <S.SliderContainer container spacing={0}>
                 <S.SliderArrow onClick={handlePrev} >
                     <ArrowForward />
                 </S.SliderArrow>
-                {
-                    currCards.map((element) => (
-                        <Grid container item xs={2}>
-                            <S.SliderSingleTitle>{element.label}</S.SliderSingleTitle>
-                            <S.SliderSingleImg src={element.imgSrc} />
-                        </Grid>
-                    ))
+
+                {currCards.map((element) => (
+                    <Grid container item xs={2}>
+                        <S.SliderSingleTitle>{element.label}</S.SliderSingleTitle>
+                        <S.SliderSingleImg src={element.imgSrc} />
+                    </Grid>
+                ))
                 }
 
                 <S.SliderArrow onClick={handleNext}>
