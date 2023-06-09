@@ -7,7 +7,10 @@ export const SliderSingleImg = styled('img')({
     top: '0',
     webkiTransition: 'opacity .3s ease-in-out',
     width: ' 100%',
-    transition: 'transform 0.3s ease, opacity 0.3s ease'
+    cursor: 'pointer',
+    ":hover": {
+        opacity: '0.8',
+    }
 
 });
 
