@@ -1,23 +1,23 @@
 import { FC, useState } from "react";
 
 //css
-import landingPageImg from './ttt.png'
-import * as S from './Navbar.style'
+import * as S from './LandingCenter.style'
 
 //routing
 import { useHistory } from "react-router-dom";
-import { REGISTER_ROUTE, TEACHER_SEARCH_ROUTE } from "../../consts/routeConsts";
+import { REGISTER_ROUTE, TEACHER_SEARCH_ROUTE } from "../../../consts/routes";
 
 // mui
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 
 // consts 
-import { NAVBAR_HEADLINES } from "./NavbarData";
-import CardSlider from "../Slider/Slider";
-import LandingQualities from "../LandingQualities/LandingQualities";
+import { NAVBAR_HEADLINES } from "./LandingCenter.data";
 
-const Navbar: FC = () => {
+// assets
+import landingPageImg from '../../../assets/images/landing/landingCenter/landingCenter.png'
+
+const LandingCenter: FC = () => {
   let history = useHistory();
 
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
@@ -71,7 +71,7 @@ const Navbar: FC = () => {
               )}
             />
             <S.CenterPopularContainer>
-              <div >פופולרי</div>
+              <div >פופולרי</div> {/* will change */}
               <S.CenterPopularOption>מתמטיקה</S.CenterPopularOption>
               <S.CenterPopularOption>אנגלית</S.CenterPopularOption>
               <S.CenterPopularOption>פסיכומטרי</S.CenterPopularOption>
@@ -79,7 +79,7 @@ const Navbar: FC = () => {
               <S.CenterPopularOption>צרפתית</S.CenterPopularOption>
             </S.CenterPopularContainer>
           </div>
-          <S.CenterLeftImg src={landingPageImg} alt='sa' />
+          <S.CenterLeftImg src={landingPageImg} alt='noImage' />
         </S.CenterContainer>
       </S.LandingContainer>
 
@@ -87,10 +87,8 @@ const Navbar: FC = () => {
         <S.LandingBtn onClick={() => { history.push(TEACHER_SEARCH_ROUTE) }}>מצא לי מורה</S.LandingBtn>
         <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה</S.LandingBtn>
       </S.ButtonsContainer>
-      <CardSlider />
-      <LandingQualities/>
     </>
   );
 };
 
-export default Navbar;
+export default LandingCenter;

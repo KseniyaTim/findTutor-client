@@ -1,16 +1,16 @@
 // components
-import Navbar from "../Components/Navbar/Navbar";
+import Landing from "../Pages/Landing/Landing";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import TeacherSearch from "../Pages/TeacherSearch/TeacherSearch";
 
 //routes 
-import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, TEACHER_SEARCH_ROUTE } from "../consts/routeConsts";
+import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, TEACHER_SEARCH_ROUTE } from "../consts/routes";
 
 const RouteMaster = [
   {
     path: HOME_ROUTE,
-    component: Navbar,
+    component: Landing,
   },
   {
     path: LOGIN_ROUTE,

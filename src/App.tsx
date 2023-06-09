@@ -1,9 +1,10 @@
+import { FC } from "react";
+
 
 //routing
 import { Redirect, Route, Switch } from "react-router-dom";
 import RouteMaster from "./routes/routes";
-import { HOME_ROUTE } from "./consts/routeConsts";
-import { FC } from "react";
+import { HOME_ROUTE } from "./consts/routes";
 
 const App: FC = () => {
 

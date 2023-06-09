@@ -1,4 +1,4 @@
-import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "../../consts/routeConsts";
+import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "../../../consts/routes";
 
 export const NAVBAR_HEADLINES = [
     {

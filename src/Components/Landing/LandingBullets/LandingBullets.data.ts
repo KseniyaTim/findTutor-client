@@ -1,4 +1,4 @@
-import { ISingleBullet } from "../Components/LandingQualities/SingleBullet/ISingleBullet";
+import { ISingleBullet } from "./SingleBullet/ISingleBullet";
 
 export const LANDING_BULLET_POINTS: ISingleBullet[] = [
     {

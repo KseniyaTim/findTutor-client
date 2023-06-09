@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
+
+// css
+import * as S from './LandingProffesionsSlider.style'
+
+// data
+import { SliderData } from './LandingProffesionsSlider.data';
+
+// mui
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
-
-import * as S from './Slider.style'
-import { SliderData } from './Slidter.data';
 import { Grid } from '@mui/material';
-import './Slider.css'
 
-const CardSlider: React.FC = () => {
+const CardSlider: FC = () => {
     const [currIndex, setCurrIndex] = useState(0);
     const [currCards, setCurrCards] = useState(SliderData.slice(0, 5));
 
