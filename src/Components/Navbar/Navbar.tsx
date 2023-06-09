@@ -15,6 +15,7 @@ import TextField from "@mui/material/TextField";
 // consts 
 import { NAVBAR_HEADLINES } from "./NavbarData";
 import CardSlider from "../Slider/Slider";
+import LandingQualities from "../LandingQualities/LandingQualities";
 
 const Navbar: FC = () => {
   let history = useHistory();
@@ -87,6 +88,7 @@ const Navbar: FC = () => {
         <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה</S.LandingBtn>
       </S.ButtonsContainer>
       <CardSlider />
+      <LandingQualities/>
     </>
   );
 };
