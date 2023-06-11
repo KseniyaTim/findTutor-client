@@ -1,5 +1,6 @@
 export enum NAVBAR_FUNCTIONS {
     openLoginPopup = 'openLoginPopup',
+    toRegister = 'toRegister'
 }
 
 export type NAVBAR_FUNCTIONS_LITERALS = keyof typeof NAVBAR_FUNCTIONS;

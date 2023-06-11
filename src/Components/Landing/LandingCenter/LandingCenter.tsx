@@ -10,7 +10,6 @@ import { REGISTER_ROUTE, TEACHER_SEARCH_ROUTE } from "../../../consts/routes";
 
 // mui
 import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
 
 // consts 
 import { NAVBAR_HEADLINES } from "./LandingCenter.data";
@@ -36,6 +35,9 @@ const LandingCenter: FC = () => {
     openLoginPopup: () => {
       setIsLoginPopupOpen(true)
     },
+    toRegister: () => {
+      history.push(REGISTER_ROUTE)
+    }
   };
 
   return (
@@ -43,7 +45,7 @@ const LandingCenter: FC = () => {
       <S.LandingContainer>
         <S.NavbarContainer>
           {NAVBAR_HEADLINES.map((element, index) => (
-            <S.NavbarElement key={index} onClick={() => { textFieldsFuncValidators[element.funcName] }}>{element.label}</S.NavbarElement>
+            <S.NavbarElement key={index} onClick={() => { textFieldsFuncValidators[element.funcName]() }}>{element.label}</S.NavbarElement>
           ))}
         </S.NavbarContainer>
 
@@ -51,6 +53,7 @@ const LandingCenter: FC = () => {
           <div>
             <S.MainTitle>
               העזרה שחיפשתם,<br />
+
               במחיר שאתם צריכים
             </S.MainTitle>
             <Autocomplete

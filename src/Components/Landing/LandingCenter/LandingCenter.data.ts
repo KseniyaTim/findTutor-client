@@ -12,7 +12,7 @@ export const NAVBAR_HEADLINES: INavbarHeadline[] = [
 
     {
         label: 'להרשמה',
-        funcName: 'openLoginPopup',
+        funcName: 'toRegister',
     },
 
 
