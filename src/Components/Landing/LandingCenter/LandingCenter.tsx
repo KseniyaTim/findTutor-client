@@ -18,6 +18,7 @@ import { NAVBAR_HEADLINES } from "./LandingCenter.data";
 // assets
 import landingPageImg from '../../../assets/images/landing/landingCenter/landingCenter.png'
 import LandingLoginPopup from "../LandingLoginPoup/LandingLoginPoup";
+import { navbarFunctionsManager } from "./ILandingCenter";
 
 const LandingCenter: FC = () => {
   let history = useHistory();
@@ -31,12 +32,18 @@ const LandingCenter: FC = () => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
   };
 
+  const textFieldsFuncValidators: navbarFunctionsManager = {
+    openLoginPopup: () => {
+      setIsLoginPopupOpen(true)
+    },
+  };
+
   return (
     <>
       <S.LandingContainer>
         <S.NavbarContainer>
           {NAVBAR_HEADLINES.map((element, index) => (
-            <S.NavbarElement key={index} id={element.id} onClick={() => { history.push(element.route); }}>{element.label}</S.NavbarElement>
+            <S.NavbarElement key={index} onClick={() => { textFieldsFuncValidators[element.funcName] }}>{element.label}</S.NavbarElement>
           ))}
         </S.NavbarContainer>
 
