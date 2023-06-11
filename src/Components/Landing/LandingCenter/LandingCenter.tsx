@@ -10,13 +10,14 @@ import { REGISTER_ROUTE, TEACHER_SEARCH_ROUTE } from "../../../consts/routes";
 
 // mui
 import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
 
 // consts 
 import { NAVBAR_HEADLINES } from "./LandingCenter.data";
 
 // assets
 import landingPageImg from '../../../assets/images/landing/landingCenter/landingCenter.png'
+import LandingLoginPopup from "../LandingLoginPoup/LandingLoginPoup";
+import { navbarFunctionsManager } from "./ILandingCenter";
 
 const LandingCenter: FC = () => {
   let history = useHistory();
@@ -24,9 +25,19 @@ const LandingCenter: FC = () => {
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
   const [isFolDropdownOpen, setIsFolDropdownOpen] = useState<boolean>(false);
 
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false)
 
   const filterAutoCompleteOption = (options: string[], { inputValue }: { inputValue: string }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
+  };
+
+  const textFieldsFuncValidators: navbarFunctionsManager = {
+    openLoginPopup: () => {
+      setIsLoginPopupOpen(true)
+    },
+    toRegister: () => {
+      history.push(REGISTER_ROUTE)
+    }
   };
 
   return (
@@ -34,7 +45,7 @@ const LandingCenter: FC = () => {
       <S.LandingContainer>
         <S.NavbarContainer>
           {NAVBAR_HEADLINES.map((element, index) => (
-            <S.NavbarElement key={index} id={element.id} onClick={() => { history.push(element.route); }}>{element.label}</S.NavbarElement>
+            <S.NavbarElement key={index} onClick={() => { textFieldsFuncValidators[element.funcName]() }}>{element.label}</S.NavbarElement>
           ))}
         </S.NavbarContainer>
 
@@ -42,6 +53,7 @@ const LandingCenter: FC = () => {
           <div>
             <S.MainTitle>
               העזרה שחיפשתם,<br />
+
               במחיר שאתם צריכים
             </S.MainTitle>
             <Autocomplete
@@ -90,6 +102,7 @@ const LandingCenter: FC = () => {
         <S.LandingBtn onClick={() => { history.push(TEACHER_SEARCH_ROUTE) }}>מצא לי מורה</S.LandingBtn>
         <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה</S.LandingBtn>
       </S.ButtonsContainer>
+      <LandingLoginPopup isLoginPopupOpen={isLoginPopupOpen} setIsLoginPopupOpen={setIsLoginPopupOpen} />
     </>
   );
 };

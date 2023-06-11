@@ -1,21 +1,18 @@
-import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "../../../consts/routes";
+import { INavbarHeadline } from "./ILandingCenter";
 
-export const NAVBAR_HEADLINES = [
+export const NAVBAR_HEADLINES: INavbarHeadline[] = [
     {
         label: 'למד לי',
-        id: 'navbarLogin',
-        route: HOME_ROUTE
+        funcName: 'openLoginPopup',
     },
     {
         label: 'התחבר',
-        route: LOGIN_ROUTE,
-        id: 'navbarLogin'
+        funcName: 'openLoginPopup',
     },
 
     {
         label: 'להרשמה',
-        route: REGISTER_ROUTE,
-        id: 'navbarLogin'
+        funcName: 'toRegister',
     },
 
 
