@@ -17,6 +17,7 @@ import { NAVBAR_HEADLINES } from "./LandingCenter.data";
 
 // assets
 import landingPageImg from '../../../assets/images/landing/landingCenter/landingCenter.png'
+import LandingLoginPopup from "../LandingLoginPoup/LandingLoginPoup";
 
 const LandingCenter: FC = () => {
   let history = useHistory();
@@ -24,6 +25,7 @@ const LandingCenter: FC = () => {
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
   const [isFolDropdownOpen, setIsFolDropdownOpen] = useState<boolean>(false);
 
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false)
 
   const filterAutoCompleteOption = (options: string[], { inputValue }: { inputValue: string }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
@@ -90,6 +92,7 @@ const LandingCenter: FC = () => {
         <S.LandingBtn onClick={() => { history.push(TEACHER_SEARCH_ROUTE) }}>מצא לי מורה</S.LandingBtn>
         <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה</S.LandingBtn>
       </S.ButtonsContainer>
+      <LandingLoginPopup isLoginPopupOpen={isLoginPopupOpen} setIsLoginPopupOpen={setIsLoginPopupOpen} />
     </>
   );
 };
