@@ -2,12 +2,16 @@
 import Dialog from '@mui/material/Dialog'
 
 import * as S from './LandingLoginPoup.style'
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { ILandingLoginPopup } from './ILandingLoginPopup';
 import { Grid } from '@mui/material';
 
 
 import './x.css'
+import LoginButton from './LoginButton/LoginButton';
+import google from '../../../assets/images/login/google.png'
+import envelope from '../../../assets/images/login/envelope.png'
+
 
 
 const LandingLoginPopup: FC<ILandingLoginPopup> = ({ isLoginPopupOpen, setIsLoginPopupOpen }) => {
@@ -24,8 +28,8 @@ const LandingLoginPopup: FC<ILandingLoginPopup> = ({ isLoginPopupOpen, setIsLogi
                 onClose={handleClose}
                 PaperProps={{
                     sx: {
-                        maxWidth: '875px',
-                        height: '645px',
+                        maxWidth: '775px',
+                        height: '545px',
                         borderRadius: '20px',
                         maxHeight: '645px',
                     }
@@ -34,8 +38,10 @@ const LandingLoginPopup: FC<ILandingLoginPopup> = ({ isLoginPopupOpen, setIsLogi
                 <S.ContainerGrid container>
                     <S.RightGrid item xs={6}>
                         <div onClick={handleClose}>סגור</div>
-                        <S.RightMainTitle>צור חשבון חדש</S.RightMainTitle>
-                        <S.RightMainTitle>אין לך חשבון? הצטרף כאן</S.RightMainTitle>
+                        <S.RightMainTitle>התחבר לחשבונך</S.RightMainTitle>
+                        <S.RightSecondaryTitle>אין לך חשבון? <S.RightSecondaryTitleJoinText>הצטרף כאן</S.RightSecondaryTitleJoinText></S.RightSecondaryTitle>
+                        <LoginButton text='התחבר עם גוגל' icon={google}></LoginButton>
+                        <LoginButton text='התחבר עם אימייל וסיסמא' icon={envelope}></LoginButton>
                     </S.RightGrid>
                     <Grid item xs={6}>
                         <S.LearningStudent>
