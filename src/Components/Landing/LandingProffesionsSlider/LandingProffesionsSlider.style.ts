@@ -2,11 +2,16 @@ import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const SliderSingleImg = styled('img')({
-    height: '250px',
-    width: '100%',
-    transition: 'opacity .3s ease-in-out',
-    borderRadius: '25px',
+    borderRadius: '4px',
+    height: '345px',
+    top: '0',
+    webkiTransition: 'opacity .3s ease-in-out',
+    width: ' 100%',
     cursor: 'pointer',
+    ":hover": {
+        opacity: '0.8',
+    }
+
 });
 
 export const SliderSingleTitle = styled('div')({
@@ -22,6 +27,7 @@ export const SliderContainer = styled(Grid)({
     marginBottom: '3rem',
     justifyContent: 'space-around',
     alignItems: 'center',
+    transition: 'transform 0.3s ease, opacity 0.3s ease'
 });
 
 export const SliderArrow = styled(Grid)({

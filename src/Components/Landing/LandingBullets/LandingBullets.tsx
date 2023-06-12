@@ -1,15 +1,22 @@
-import React, { FC } from "react";
-import { LANDING_BULLET_POINTS } from "../../consts/landingBulletPoints";
-import SingleBullet from "./SingleBullet/SingleBullet";
-import * as S from "./LandingQualities.style";
-import landingQualitiesImg from "./girl.png";
+import { FC } from "react";
 
-const LandingQualities: FC = () => {
+// components
+import SingleBullet from "./SingleBullet/SingleBullet";
+
+// css
+import * as S from "./LandingBullets.style";
+
+// images
+import landingQualitiesImg from "../../../assets/images/landing/landingBullets/bulletStudyGirl.png";
+
+// consts
+import { LANDING_BULLET_POINTS } from "./LandingBullets.data";
+
+const LandingBullets: FC = () => {
   return (
     <S.container>
-      
       <S.AllBulletWrapper>
-      <S.title>החלק הכי טוב? הכל.</S.title>
+        <S.title>החלק הכי טוב? הכל.</S.title>
         {LANDING_BULLET_POINTS.map((bullet, index) => (
           <SingleBullet
             desc={bullet.desc}
@@ -25,4 +32,4 @@ const LandingQualities: FC = () => {
   );
 };
 
-export default LandingQualities;
+export default LandingBullets;

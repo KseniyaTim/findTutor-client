@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
+
+// css
+import * as S from './LandingProffesionsSlider.style'
+
+// data
+import { SliderData } from './LandingProffesionsSlider.data';
+
+// mui
 import { ArrowBack, ArrowForward } from '@mui/icons-material';
-
-import * as S from './Slider.style'
-import { SliderData } from './Slidter.data';
 import { Grid } from '@mui/material';
-import './Slider.css'
 
-const CardSlider: React.FC = () => {
+const CardSlider: FC = () => {
     const [currIndex, setCurrIndex] = useState(0);
     const [currCards, setCurrCards] = useState(SliderData.slice(0, 5));
 
@@ -51,17 +55,17 @@ const CardSlider: React.FC = () => {
     return (
         <>
             <S.SliderTitle>מקצועות פופולריים</S.SliderTitle>
-            <S.SliderContainer container spacing={0} className='slides'>
+            <S.SliderContainer container spacing={0}>
                 <S.SliderArrow onClick={handlePrev} >
                     <ArrowForward />
                 </S.SliderArrow>
-                {
-                    currCards.map((element) => (
-                        <Grid container item xs={2}>
-                            <S.SliderSingleTitle>{element.label}</S.SliderSingleTitle>
-                            <S.SliderSingleImg src={element.imgSrc} />
-                        </Grid>
-                    ))
+
+                {currCards.map((element) => (
+                    <Grid container item xs={2}>
+                        <S.SliderSingleTitle>{element.label}</S.SliderSingleTitle>
+                        <S.SliderSingleImg src={element.imgSrc} />
+                    </Grid>
+                ))
                 }
 
                 <S.SliderArrow onClick={handleNext}>

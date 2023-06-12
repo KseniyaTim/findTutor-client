@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const LandingContainer = styled('div')({
@@ -8,7 +9,6 @@ export const LandingContainer = styled('div')({
 
 export const NavbarContainer = styled('div')({
     display: 'flex',
-    justifyContent: 'right',
     color: 'white',
     fontSize: '1rem',
 });
@@ -22,7 +22,7 @@ export const CenterContainer = styled('div')({
     justifyContent: 'space-around',
     color: 'white',
     alignItems: 'center',
-    height: '425px'
+    height: '500px'
 });
 
 export const MainTitle = styled('div')({
@@ -48,7 +48,7 @@ export const LandingBtn = styled('div')({
     backgroundColor: 'rgb(63, 76, 119)',
     color: 'white',
     borderRadius: '25px',
-    height: '2rem',
+    height: '3rem',
     width: '12rem',
     display: 'flex',
     alignItems: 'center',
@@ -82,6 +82,49 @@ export const CenterPopularOption = styled('div')({
         color: 'black'
     }
 });
+
+export const AutocompleteInput = styled(TextField)(({ theme }) => ({
+    marginBottom: '1.75rem !important',
+
+    '.MuiInputBase-root': {
+        paddingRight: '50px'
+    },
+
+    '.MuiOutlinedInput-root': {
+        borderRadius: '1.625rem',
+        fontSize: '1.125rem',
+
+        '.MuiOutlinedInput-notchedOutline': {
+            borderColor: '#868686',
+        },
+        '&.Mui-focused': {
+            '.MuiOutlinedInput-notchedOutline': {
+                borderColor: '#5755F8',
+                borderWidth: 1,
+            },
+        },
+        '&.Mui-error': {
+            '.MuiOutlinedInput-notchedOutline': {
+                borderColor: 'red',
+            },
+        }
+    },
+    '.MuiOutlinedInput-input': {
+        padding: '0.9375rem 1.25rem',
+        fontFamily: theme.typography.fontFamily,
+    },
+    '.MuiFormHelperText-root': {
+        fontSize: '0.9375rem',
+        lineHeight: 1.27,
+        margin: '0 1.25rem -1.5625rem',
+        padding: '0.375rem 0 0',
+        textAlign: 'start',
+
+        '&.Mui-error': {
+            color: 'red',
+        }
+    }
+}))
 
 
 
