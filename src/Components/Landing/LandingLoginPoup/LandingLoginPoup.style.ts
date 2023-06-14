@@ -2,7 +2,6 @@ import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 import learningStudent from "../../../assets/images/login/yellowBackground.png";
-import { text } from "stream/consumers";
 
 export const ContainerGrid = styled(Grid)({
     height: '100%'
@@ -15,8 +14,13 @@ export const RightContainer = styled('div')({
 });
 
 export const RightCloseIcon = styled('span')({
-    paddingRight: '1rem',
-    paddingTop: '1rem',
+    marginRight: '1rem',
+    marginTop: '1rem',
+    cursor: 'pointer',
+    ":hover": {
+        backgroundColor: '#fafafa',
+        borderRadius: '50%'
+    }
 });
 
 export const RightMainTitle = styled('div')({
@@ -29,18 +33,17 @@ export const RightSeperator = styled('div')({
     fontWeight: '700',
 });
 
-
-
 export const RightSecondaryTitle = styled('div')({
     color: '#62646a',
     paddingTop: '0.5rem',
     fontSize: '1rem',
-    marginBottom: '5rem'
+    marginBottom: '3rem'
 });
 
 export const RightSecondaryTitleJoinText = styled('span')({
     textDecoration: 'underline',
-    color: 'black'
+    color: 'black',
+    cursor: 'pointer'
 });
 
 export const LearningStudent = styled('div')({

@@ -34,6 +34,9 @@ export const textFieldsFuncValidators: fieldsValidatorsManager = {
     },
     onlyHebrewAndDigits: (textToCheck: string): boolean => {
         return /^[\u0590-\u05FF ,.'-, \d]+$/i.test(textToCheck)
+    },
+    isEmailValid(textToCheck: string): boolean {
+        return /^[\w.%+-]+@[A-Za-z0-9.-]+\.(?:[A-Za-z]{2,}|il)$/.test(textToCheck)
     }
 };
 
@@ -48,7 +51,6 @@ export const checkValidaitons = (textValue: string, validators: IFieldValidators
             textValue,
             validators[validFuncIndex].param1,
             validators[validFuncIndex].param2,
-            validators[validFuncIndex].param3,
         );
     }
     return { isTextValid, validFuncIndex }

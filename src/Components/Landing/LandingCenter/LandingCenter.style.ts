@@ -14,7 +14,8 @@ export const NavbarContainer = styled('div')({
 });
 
 export const NavbarElement = styled('div')({
-    marginLeft: '2rem'
+    marginLeft: '2rem',
+    cursor: 'pointer',
 });
 
 export const CenterContainer = styled('div')({

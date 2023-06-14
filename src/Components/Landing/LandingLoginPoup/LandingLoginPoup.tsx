@@ -8,7 +8,8 @@ import { Grid } from '@mui/material';
 
 import LoginButton from './LoginButton/LoginButton';
 import google from '../../../assets/images/login/google.png'
-import { LOGIN_POPUP_TITLES } from './LandingLoginPopup.data';
+import { LOGIN_POPUP_FIELDS, LOGIN_POPUP_TITLES } from './LandingLoginPopup.data';
+import LoginField from './LoginField/LoginField';
 
 const LandingLoginPopup: FC<ILandingLoginPopup> = ({ isLoginPopupOpen, setIsLoginPopupOpen }) => {
 
@@ -37,6 +38,11 @@ const LandingLoginPopup: FC<ILandingLoginPopup> = ({ isLoginPopupOpen, setIsLogi
                         <S.RightContainer>
                             <S.RightMainTitle>התחבר לחשבונך</S.RightMainTitle>
                             <S.RightSecondaryTitle>אין לך חשבון? <S.RightSecondaryTitleJoinText>הצטרף כאן</S.RightSecondaryTitleJoinText></S.RightSecondaryTitle>
+                            {
+                                LOGIN_POPUP_FIELDS.map((element, index) => (
+                                    <LoginField key={index} {...element}></LoginField>
+                                ))
+                            }
                             <LoginButton text='התחבר'></LoginButton>
                             <S.RightSeperator>או</S.RightSeperator>
                             <LoginButton text='התחבר עם גוגל' icon={google}></LoginButton>

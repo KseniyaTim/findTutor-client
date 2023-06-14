@@ -8,7 +8,8 @@ export enum FIELDS_VALIDATORS_FUNCTIONS {
     required = 'required',
     isIdValid = 'isIdValid',
     phoneNumber = 'phone_number',
-    onlyHebrewAndDigits = 'onlyHebrewAndDigits'
+    onlyHebrewAndDigits = 'onlyHebrewAndDigits',
+    isEmailValid = 'isEmailValid',
 }
 
 export type FIELDS_VALIDATORS_FUNCTIONS_LITERALS = keyof typeof FIELDS_VALIDATORS_FUNCTIONS;
@@ -18,11 +19,9 @@ export type fieldsValidatorsManager = { [literal in FIELDS_VALIDATORS_FUNCTIONS_
 
 
 export interface IFieldValidators {
-    id: number
     functionName: FIELDS_VALIDATORS_FUNCTIONS_LITERALS
     param1?: string
     param2?: string
-    param3?: string
     errorMsg: string
 }
 
