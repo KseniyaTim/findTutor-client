@@ -7,7 +7,7 @@ const LoginButton: FC<ILoginButton> = ({ execFunction, icon, text }) => {
     return (
         <S.LoginButton onClick={execFunction}>
             <S.LoginButtonText>{text}</S.LoginButtonText>
-            <S.LoginButtonIcon src={icon}></S.LoginButtonIcon>
+            {icon && <S.LoginButtonIcon src={icon}></S.LoginButtonIcon>}
         </S.LoginButton>
     );
 };

@@ -8,6 +8,10 @@ export const LoginButton = styled('div')({
     padding: '12px 16px 12px 16px',
     margin: '12px 0',
     borderRadius: '4px',
+    cursor: 'pointer',
+    '&:hover': {
+        backgroundColor: '#fafafa'
+    }
 });
 
 export const LoginButtonText = styled('div')({

@@ -1,0 +1,55 @@
+// interfaces
+
+import { IFieldValidators, fieldsValidatorsManager } from "./validators";
+
+// consts
+
+export const textFieldsFuncValidators: fieldsValidatorsManager = {
+    checkLength: (textToCheck: string, maxLength: number): boolean => {
+        return textToCheck.length <= maxLength
+    },
+    maxLength: (textToCheck: string, maxLength: number): boolean => {
+        return textToCheck.length <= maxLength
+    },
+    minLength: (textToCheck: string, minLength: number): boolean => {
+        return textToCheck.length >= minLength
+    },
+    onlyDigits: (textToCheck: string): boolean => {
+        return /^\d+$/.test(textToCheck)
+    },
+    isAbove: (textToCheck: string, maxNumber: string): boolean => {
+        return +textToCheck <= +maxNumber
+    },
+    onlyHebrewLetters: (textToCheck: string): boolean => {
+        return /^[\u0590-\u05FF ,.'-]+$/i.test(textToCheck)
+    },
+    required: (textToCheck: string): boolean => {
+        return textToCheck.length > 0
+    },
+    isIdValid: (textToCheck: string): boolean => {
+        return new RegExp(/^\d{0,9}$/).test(textToCheck);
+    },
+    phoneNumber: (textToCheck: string): boolean => {
+        return textToCheck.length === 10 && textToCheck[0] === '0'
+    },
+    onlyHebrewAndDigits: (textToCheck: string): boolean => {
+        return /^[\u0590-\u05FF ,.'-, \d]+$/i.test(textToCheck)
+    }
+};
+
+export const checkValidaitons = (textValue: string, validators: IFieldValidators[]) => {
+    let isTextValid = true, validFuncIndex
+    for (
+        validFuncIndex = 0;
+        validFuncIndex < validators.length && isTextValid;
+        validFuncIndex++
+    ) {
+        isTextValid = textFieldsFuncValidators[validators[validFuncIndex].functionName](
+            textValue,
+            validators[validFuncIndex].param1,
+            validators[validFuncIndex].param2,
+            validators[validFuncIndex].param3,
+        );
+    }
+    return { isTextValid, validFuncIndex }
+}

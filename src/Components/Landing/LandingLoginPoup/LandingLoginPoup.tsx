@@ -8,7 +8,6 @@ import { Grid } from '@mui/material';
 
 import LoginButton from './LoginButton/LoginButton';
 import google from '../../../assets/images/login/google.png'
-import envelope from '../../../assets/images/login/envelope.png'
 import { LOGIN_POPUP_TITLES } from './LandingLoginPopup.data';
 
 const LandingLoginPopup: FC<ILandingLoginPopup> = ({ isLoginPopupOpen, setIsLoginPopupOpen }) => {
@@ -38,8 +37,10 @@ const LandingLoginPopup: FC<ILandingLoginPopup> = ({ isLoginPopupOpen, setIsLogi
                         <S.RightContainer>
                             <S.RightMainTitle>התחבר לחשבונך</S.RightMainTitle>
                             <S.RightSecondaryTitle>אין לך חשבון? <S.RightSecondaryTitleJoinText>הצטרף כאן</S.RightSecondaryTitleJoinText></S.RightSecondaryTitle>
+                            <LoginButton text='התחבר'></LoginButton>
+                            <S.RightSeperator>או</S.RightSeperator>
                             <LoginButton text='התחבר עם גוגל' icon={google}></LoginButton>
-                            <LoginButton text='התחבר עם אימייל וסיסמא' icon={envelope}></LoginButton>
+
                         </S.RightContainer>
                     </Grid>
                     <Grid item xs={6}>

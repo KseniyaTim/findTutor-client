@@ -24,6 +24,12 @@ export const RightMainTitle = styled('div')({
     fontWeight: '700',
 });
 
+export const RightSeperator = styled('div')({
+    padding: '0.75rem 0 0.75rem 0',
+    fontWeight: '700',
+});
+
+
 
 export const RightSecondaryTitle = styled('div')({
     color: '#62646a',
