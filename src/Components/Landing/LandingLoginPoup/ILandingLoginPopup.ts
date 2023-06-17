@@ -13,3 +13,8 @@ export interface IField {
     value: '',
     isRequired: boolean,
 }
+
+
+export interface IFieldManager {
+    field: IField
+}
