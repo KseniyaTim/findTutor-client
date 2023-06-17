@@ -30,7 +30,7 @@ export const Text = styled(TextField)(({ theme }) => ({
     '.MuiFormHelperText-root': {
         fontSize: '0.9375rem',
         margin: '0 1.25rem -1.5625rem',
-        padding: '0.375rem 0 0',
+        paddingBottom: '1rem',
         textAlign: 'start',
 
         '&.Mui-error': {

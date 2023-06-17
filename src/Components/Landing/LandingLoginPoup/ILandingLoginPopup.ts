@@ -17,5 +17,6 @@ export interface IField {
 
 export interface IFieldManager {
     field: IField
-    setIsFieldsValid: React.Dispatch<React.SetStateAction<boolean[]>>
+    updateFieldValidity: (isFieldsValid: boolean,index: number) => void
+    index: number
 }

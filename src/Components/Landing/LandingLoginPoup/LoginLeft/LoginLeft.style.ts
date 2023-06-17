@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 
-import learningStudent from "../../../assets/images/login/yellowBackground.png";
+import learningStudent from "../../../../assets/images/login/yellowBackground.png";
 
 export const LearningStudent = styled('div')({
     backgroundSize: 'cover',

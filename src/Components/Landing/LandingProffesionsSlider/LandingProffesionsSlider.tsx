@@ -60,8 +60,8 @@ const CardSlider: FC = () => {
                     <ArrowForward />
                 </S.SliderArrow>
 
-                {currCards.map((element) => (
-                    <Grid container item xs={2}>
+                {currCards.map((element, index) => (
+                    <Grid container item xs={2} key={index}>
                         <S.SliderSingleTitle>{element.label}</S.SliderSingleTitle>
                         <S.SliderSingleImg src={element.imgSrc} />
                     </Grid>
