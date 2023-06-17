@@ -19,10 +19,13 @@ import google from '../../../../assets/images/login/google.png'
 // interfaces
 import { ILoginRight } from './ILoginRight';
 
+import loginService from '../../../../services/login/login'
+
 const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
 
     const [isFieldsValid, setIsFieldsValid] = useState<boolean[]>([])
     const [checkEmptyRequiredFields, setCheckEmptyRequiredFields] = useState(false)
+    const [isLoginFailed, setIsLoginFailed] = useState(false)
 
 
     useEffect(() => {
@@ -44,7 +47,9 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
 
     const handleLogin = () => {
         if (isFieldsValid.every(Boolean)) {
-            console.log('login')
+            loginService.login().then(data => {
+
+            }).catch(err => { setIsLoginFailed(true) })
         }
         else {
             setCheckEmptyRequiredFields(prevCheckEmpty => { return !prevCheckEmpty })
@@ -63,6 +68,7 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
                             key={index} field={element} index={index} updateFieldValidity={updateFieldValidity}></LoginField>
                     ))
                 }
+                {isLoginFailed && <S.RightLoginFailed>שם משתמש או סיסמא שגויים</S.RightLoginFailed>}
                 <div onClick={() => { handleLogin() }}>
                     <LoginButton text='התחבר'></LoginButton>
                 </div>

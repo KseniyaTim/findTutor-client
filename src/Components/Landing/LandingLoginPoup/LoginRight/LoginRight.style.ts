@@ -38,3 +38,9 @@ export const RightSecondaryTitleJoinText = styled('span')({
     color: 'black',
     cursor: 'pointer'
 });
+
+export const RightLoginFailed = styled('span')({
+    color: 'red',
+    fontSize: '0.75rem',
+    marginBottom: '1rem'
+});
