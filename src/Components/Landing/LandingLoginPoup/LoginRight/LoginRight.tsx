@@ -22,7 +22,7 @@ import { ILoginRight } from './ILoginRight';
 const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
 
 
-    const [isFieldsValid, setIsFieldsValid] = useState<boolean[]>()
+    const [isFieldsValid, setIsFieldsValid] = useState<boolean[]>([])
 
     useEffect(() => {
         setIsFieldsValid(() => {
@@ -34,7 +34,6 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
         setIsLoginPopupOpen(false);
     };
 
-
     return (
         <Grid item xs={6}>
             <S.RightCloseIcon className="material-symbols-outlined" onClick={handleClose}>close</S.RightCloseIcon>
@@ -43,13 +42,12 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
                 <S.RightSecondaryTitle>אין לך חשבון? <S.RightSecondaryTitleJoinText>הצטרף כאן</S.RightSecondaryTitleJoinText></S.RightSecondaryTitle>
                 {
                     LOGIN_POPUP_FIELDS.map((element, index) => (
-                        <LoginField key={index} {...element}></LoginField>
+                        <LoginField key={index} field={element} setIsFieldsValid={setIsFieldsValid}></LoginField>
                     ))
                 }
                 <LoginButton text='התחבר'></LoginButton>
                 <S.RightSeperator>או</S.RightSeperator>
                 <LoginButton text='התחבר עם גוגל' icon={google}></LoginButton>
-
             </S.RightContainer>
         </Grid>
     );

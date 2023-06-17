@@ -1,14 +1,18 @@
 import { FC, useState } from 'react';
 
+// style
 import * as S from './LoginField.style'
-import { IField } from '../../ILandingLoginPopup';
+
+// interface
+import { IFieldManager } from '../../ILandingLoginPopup';
+
+// utils
 import { checkValidaitons } from '../../../../../utils/validations/funcs';
 
-
-const LoginField: FC<IField> = ({ dbLabel, isRequired, placeholder, validationFuncs, value }) => {
+const LoginField: FC<IFieldManager> = ({ field, setIsFieldsValid }) => {
 
     const [isFieldValid, setisFieldValid] = useState(true)
-    const [fieldValue, setFieldValue] = useState(value)
+    const [fieldValue, setFieldValue] = useState(field.value)
     const [errorMsg, setErrorMsg] = useState('')
 
     const handleChange = (value: string) => {
@@ -16,7 +20,7 @@ const LoginField: FC<IField> = ({ dbLabel, isRequired, placeholder, validationFu
         if (value.length === 0) {
             setisFieldValid(true)
         }
-        const { isTextValid, validFuncIndex } = checkValidaitons(value, validationFuncs)
+        const { isTextValid, validFuncIndex } = checkValidaitons(value, field.validationFuncs)
     }
 
 
@@ -27,7 +31,7 @@ const LoginField: FC<IField> = ({ dbLabel, isRequired, placeholder, validationFu
             error={!isFieldValid}
             helperText={!isFieldValid ? errorMsg : ''}
             value={fieldValue}
-            placeholder={placeholder}
+            placeholder={field.placeholder}
             onChange={(e) => handleChange(e.target.value)}
         />
     );

@@ -17,4 +17,5 @@ export interface IField {
 
 export interface IFieldManager {
     field: IField
+    setIsFieldsValid: React.Dispatch<React.SetStateAction<boolean[]>>
 }
