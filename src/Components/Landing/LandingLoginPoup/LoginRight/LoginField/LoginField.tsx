@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 // style
 import * as S from './LoginField.style'
@@ -7,13 +7,16 @@ import * as S from './LoginField.style'
 import { IFieldManager } from '../../ILandingLoginPopup';
 
 // utils
-import { checkValidaitons } from '../../../../../utils/validations/funcs';
+import { checkValidaitons, isEmptyAndRequired } from '../../../../../utils/validations/funcs';
+import { useIsAfterFirstRender } from '../../../../../hooks/useIsAferFirstRender';
 
-const LoginField: FC<IFieldManager> = ({ field, updateFieldValidity, index }) => {
+const LoginField: FC<IFieldManager> = ({ field, updateFieldValidity, index, checkEmptyRequiredFields }) => {
 
     const [isFieldValid, setisFieldValid] = useState(true)
     const [fieldValue, setFieldValue] = useState<string>(field.value)
     const [errorMsg, setErrorMsg] = useState('')
+
+    const isAfterFirstRender = useIsAfterFirstRender();
 
     const handleChange = (value: string) => {
         setFieldValue(value)
@@ -25,8 +28,18 @@ const LoginField: FC<IFieldManager> = ({ field, updateFieldValidity, index }) =>
         const { isTextValid, validFuncIndex } = checkValidaitons(value, field.validationFuncs)
         setisFieldValid(isTextValid)
         updateFieldValidity(isTextValid, index)
-        setErrorMsg(field.validationFuncs[validFuncIndex - 1].errorMsg)
+        !isTextValid && setErrorMsg(field.validationFuncs[validFuncIndex - 1].errorMsg)
     }
+
+
+    useEffect(() => {
+        if (isAfterFirstRender) {
+            if (isEmptyAndRequired(fieldValue, field.isRequired)) {
+                setisFieldValid(false)
+                setErrorMsg('שדה חובה')
+            }
+        }
+    }, [checkEmptyRequiredFields])
 
     return (
         <S.Text

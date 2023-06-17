@@ -55,3 +55,7 @@ export const checkValidaitons = (textValue: string, validators: IFieldValidators
     }
     return { isTextValid, validFuncIndex }
 }
+
+export const isEmptyAndRequired = (textValue: string, isRequired: boolean) => {
+    return isRequired && (!textValue.length || !/.*\S.*/.test(textValue))
+}

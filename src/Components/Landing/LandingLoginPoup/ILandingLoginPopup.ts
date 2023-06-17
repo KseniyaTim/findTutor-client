@@ -17,6 +17,7 @@ export interface IField {
 
 export interface IFieldManager {
     field: IField
-    updateFieldValidity: (isFieldsValid: boolean,index: number) => void
+    updateFieldValidity: (isFieldsValid: boolean, index: number) => void
     index: number
+    checkEmptyRequiredFields: boolean,
 }

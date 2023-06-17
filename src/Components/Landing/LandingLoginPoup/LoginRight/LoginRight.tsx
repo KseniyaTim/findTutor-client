@@ -22,6 +22,8 @@ import { ILoginRight } from './ILoginRight';
 const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
 
     const [isFieldsValid, setIsFieldsValid] = useState<boolean[]>([])
+    const [checkEmptyRequiredFields, setCheckEmptyRequiredFields] = useState(false)
+
 
     useEffect(() => {
         setIsFieldsValid(() => {
@@ -44,6 +46,9 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
         if (isFieldsValid.every(Boolean)) {
             console.log('login')
         }
+        else {
+            setCheckEmptyRequiredFields(prevCheckEmpty => { return !prevCheckEmpty })
+        }
     }
 
     return (
@@ -54,7 +59,8 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
                 <S.RightSecondaryTitle>אין לך חשבון? <S.RightSecondaryTitleJoinText>הצטרף כאן</S.RightSecondaryTitleJoinText></S.RightSecondaryTitle>
                 {
                     LOGIN_POPUP_FIELDS.map((element, index) => (
-                        <LoginField key={index} field={element} index={index} updateFieldValidity={updateFieldValidity}></LoginField>
+                        <LoginField checkEmptyRequiredFields={checkEmptyRequiredFields}
+                            key={index} field={element} index={index} updateFieldValidity={updateFieldValidity}></LoginField>
                     ))
                 }
                 <div onClick={() => { handleLogin() }}>
