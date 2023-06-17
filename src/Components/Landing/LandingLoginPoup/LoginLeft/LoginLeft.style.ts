@@ -1,11 +1,9 @@
 import { styled } from "@mui/material/styles";
 
-import learningStudent from "../../../../assets/images/login/yellowBackground.png";
 
 export const LearningStudent = styled('div')({
-    backgroundSize: 'cover',
-    backgroundPosition: 'right',
-    backgroundImage: `url(${learningStudent})`,
+    background: ' linear-gradient(to top, #09203f 0%, #537895 100%);',
+
     height: '100%'
 });
 

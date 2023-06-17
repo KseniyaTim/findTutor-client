@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 
 export const LandingContainer = styled('div')({
     boxShadow: '0px 2px 4px -1px rgba(0, 0, 0, 0.2),0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)',
-    background: 'linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%)',
+    background: ' linear-gradient(to top, #09203f 0%, #537895 100%);',
     padding: '1.5rem 3rem 0 2rem'
 });
 
