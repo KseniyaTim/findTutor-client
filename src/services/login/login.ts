@@ -9,7 +9,8 @@ const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
 });
 
 export default {
-    login: async () => {
+    login: async (password: string, email: string) => {
+        console.log(password, email)
         const { data } = await axiosInstanceNoToken.get("/")
         return data
     },

@@ -12,12 +12,14 @@ export interface IField {
     dbLabel: string,
     value: '',
     isRequired: boolean,
+    type: string
 }
 
 
 export interface IFieldManager {
     field: IField
-    updateFieldValidity: (isFieldsValid: boolean, index: number) => void
+    updateFieldInfo: (isFieldsValid: boolean, value: string, index: number) => void
     index: number
     checkEmptyRequiredFields: boolean,
+    type: string
 }

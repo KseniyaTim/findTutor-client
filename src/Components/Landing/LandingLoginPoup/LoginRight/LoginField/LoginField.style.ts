@@ -2,7 +2,7 @@ import { TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const Text = styled(TextField)(({ theme }) => ({
-    marginBottom: '1.75rem !important',
+    marginBottom: '1rem !important',
 
     '.MuiOutlinedInput-root': {
         borderRadius: '1.625rem',

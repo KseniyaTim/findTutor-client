@@ -44,3 +44,12 @@ export const RightLoginFailed = styled('span')({
     fontSize: '0.75rem',
     marginBottom: '1rem'
 });
+
+
+export const RightLoginForgetPassword = styled('div')({
+    textDecoration: 'underline',
+    textAlign: 'right',
+    paddingRight: '1rem',
+    paddingBottom: '1rem',
+    cursor: 'pointer'
+});

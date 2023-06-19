@@ -10,7 +10,7 @@ import { IFieldManager } from '../../ILandingLoginPopup';
 import { checkValidaitons, isEmptyAndRequired } from '../../../../../utils/validations/funcs';
 import { useIsAfterFirstRender } from '../../../../../hooks/useIsAferFirstRender';
 
-const LoginField: FC<IFieldManager> = ({ field, updateFieldValidity, index, checkEmptyRequiredFields }) => {
+const LoginField: FC<IFieldManager> = ({ field, updateFieldInfo, index, checkEmptyRequiredFields, type }) => {
 
     const [isFieldValid, setisFieldValid] = useState(true)
     const [fieldValue, setFieldValue] = useState<string>(field.value)
@@ -22,12 +22,12 @@ const LoginField: FC<IFieldManager> = ({ field, updateFieldValidity, index, chec
         setFieldValue(value)
         if (value.length === 0) {
             setisFieldValid(true)
-            updateFieldValidity(!field.isRequired, index)
+            updateFieldInfo(!field.isRequired, value, index)
             return
         }
         const { isTextValid, validFuncIndex } = checkValidaitons(value, field.validationFuncs)
         setisFieldValid(isTextValid)
-        updateFieldValidity(isTextValid, index)
+        updateFieldInfo(isTextValid, value, index)
         !isTextValid && setErrorMsg(field.validationFuncs[validFuncIndex - 1].errorMsg)
     }
 
@@ -44,6 +44,7 @@ const LoginField: FC<IFieldManager> = ({ field, updateFieldValidity, index, chec
     return (
         <S.Text
             fullWidth
+            type={type}
             error={!isFieldValid}
             helperText={!isFieldValid ? errorMsg : ''}
             value={fieldValue}
