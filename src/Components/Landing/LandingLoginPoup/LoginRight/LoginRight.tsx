@@ -20,6 +20,7 @@ import google from '../../../../assets/images/login/google.png'
 import { ILoginRight } from './ILoginRight';
 
 import loginService from '../../../../services/login/login'
+import ForgetPassword from './ForgetPassword/ForgetPassword';
 
 const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
 
@@ -27,6 +28,7 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
     const [checkEmptyRequiredFields, setCheckEmptyRequiredFields] = useState(false)
     const [isLoginFailed, setIsLoginFailed] = useState(false)
 
+    const [displayToggler, setDisplayToggler] = useState(0)
 
     useEffect(() => {
         setField(prev => {
@@ -62,26 +64,33 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
         }
     }
 
+    const handleForgetPassword = () => {
+        setDisplayToggler(1)
+    }
+
     return (
         <Grid item xs={6}>
             <S.RightCloseIcon className="material-symbols-outlined" onClick={handleClose}>close</S.RightCloseIcon>
             <S.RightContainer>
-                <S.RightMainTitle>התחבר לחשבונך</S.RightMainTitle>
-                <S.RightSecondaryTitle>אין לך חשבון? <S.RightSecondaryTitleJoinText>הצטרף כאן</S.RightSecondaryTitleJoinText></S.RightSecondaryTitle>
-                {
-                    LOGIN_POPUP_FIELDS.map((element, index) => (
-                        <LoginField checkEmptyRequiredFields={checkEmptyRequiredFields}
-                            type={element.type}
-                            key={index} field={element} index={index} updateFieldInfo={updateFieldInfo}></LoginField>
-                    ))
-                }
-                <S.RightLoginForgetPassword>שכחתי סיסמה</S.RightLoginForgetPassword>
-                {isLoginFailed && <S.RightLoginFailed>שם משתמש או סיסמא שגויים</S.RightLoginFailed>}
-                <div onClick={() => { handleLogin() }}>
-                    <LoginButton text='התחבר'></LoginButton>
-                </div>
-                <S.RightSeperator>או</S.RightSeperator>
-                <LoginButton text='התחבר עם גוגל' icon={google}></LoginButton>
+                {displayToggler === 0 ? <>   <S.RightMainTitle>התחבר לחשבונך</S.RightMainTitle>
+                    <S.RightSecondaryTitle>אין לך חשבון? <S.RightSecondaryTitleJoinText>הצטרף כאן</S.RightSecondaryTitleJoinText></S.RightSecondaryTitle>
+                    {
+                        LOGIN_POPUP_FIELDS.map((element, index) => (
+                            <LoginField checkEmptyRequiredFields={checkEmptyRequiredFields}
+                                type={element.type}
+                                key={index} field={element} index={index} updateFieldInfo={updateFieldInfo}></LoginField>
+                        ))
+                    }
+                    <S.RightLoginForgetPassword onClick={() => { handleForgetPassword() }}>שכחתי סיסמה</S.RightLoginForgetPassword>
+                    {isLoginFailed && <S.RightLoginFailed>שם משתמש או סיסמא שגויים</S.RightLoginFailed>}
+                    <div onClick={() => { handleLogin() }}>
+                        <LoginButton text='התחבר'></LoginButton>
+                    </div>
+                    <S.RightSeperator>או</S.RightSeperator>
+                    <LoginButton text='התחבר עם גוגל' icon={google}></LoginButton>
+                </> : <>
+                    <ForgetPassword />
+                </>}
             </S.RightContainer>
         </Grid>
     );
