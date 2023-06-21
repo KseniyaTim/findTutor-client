@@ -6,6 +6,7 @@ export enum LOGIN_TOGGLER_COMPS {
     login = 'login',
     forgotPassword = 'forgotPassword',
     restorationCode = 'restorationCode',
+    resetPassword = 'resetPassword'
 }
 
 export type LOGIN_TOGGLER_COMPS_LITERALS = keyof typeof LOGIN_TOGGLER_COMPS;

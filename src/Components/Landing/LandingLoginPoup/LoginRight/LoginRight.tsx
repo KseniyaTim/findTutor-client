@@ -16,6 +16,7 @@ import { ILoginRight } from './ILoginRight';
 import Login from './Login/Login';
 import ForgetPassword from './ForgetPassword/ForgetPassword';
 import RestorationCode from './RestorationCode/RestorationCode';
+import ResetPassword from './ResetPassword/ResetPassword';
 
 const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
 
@@ -24,6 +25,8 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
     loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.login] = <Login setTempLoginComp={setTempLoginComp} />
     loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.forgotPassword] = <ForgetPassword setTempLoginComp={setTempLoginComp} />
     loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.restorationCode] = <RestorationCode setTempLoginComp={setTempLoginComp} />
+    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.resetPassword] = <ResetPassword setTempLoginComp={setTempLoginComp} />
+
 
     const handleClose = () => {
         setIsLoginPopupOpen(false);
