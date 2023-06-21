@@ -14,12 +14,12 @@ import LoginButton from '../LoginButton/LoginButton';
 import LoginField from '../LoginField/LoginField';
 
 // consts
-import { LOGIN_POPUP_FIELDS, LOGIN_POPUP_FIELDS_MANAGER } from './Login.data';
+import { LOGIN_POPUP_FIELDS } from './Login.data';
 import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS } from '../LoginRight.data';
 
 const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
-    const [field, setField] = useState(LOGIN_POPUP_FIELDS_MANAGER)
+    const [field, setField] = useState(LOGIN_POPUP_FIELDS)
     const [checkEmptyRequiredFields, setCheckEmptyRequiredFields] = useState(false)
     const [isLoginFailed, setIsLoginFailed] = useState(false)
 
@@ -33,7 +33,7 @@ const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
     }
 
     const handleLogin = () => {
-        if (field.every(Boolean)) {
+        if (field.every(element => { return element.isValid })) {
             loginService.login(field[0].value, field[1].value).then(data => {
 
             }).catch(err => { setIsLoginFailed(true) })

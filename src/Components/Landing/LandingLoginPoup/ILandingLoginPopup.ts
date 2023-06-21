@@ -10,8 +10,9 @@ export interface IField {
     placeholder: string
     validationFuncs: IFieldValidators[]
     dbLabel: string,
-    value: '',
+    value: string,
     isRequired: boolean,
+    isValid: boolean,
     type: string
 }
 

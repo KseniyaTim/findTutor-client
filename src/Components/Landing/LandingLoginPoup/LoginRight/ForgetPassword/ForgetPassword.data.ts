@@ -7,14 +7,9 @@ export const FORGET_PASSWORD_FIELD: IField[] = [
         dbLabel: 'email',
         isRequired: true,
         value: '',
+        isValid: false,
         type: ''
     },
 ]
 
-export const FORGET_PASSWORD_FIELD_MANAGER = [
-    {
-        isValid: false,
-        value: ''
-    },
-]
 

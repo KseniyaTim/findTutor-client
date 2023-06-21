@@ -12,11 +12,11 @@ import loginService from '../../../../../services/login/login'
 
 // consts
 import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS } from '../LoginRight.data';
-import { FORGET_PASSWORD_FIELD, FORGET_PASSWORD_FIELD_MANAGER } from './ForgetPassword.data';
+import { FORGET_PASSWORD_FIELD } from './ForgetPassword.data';
 
 const ForgetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
-    const [field, setField] = useState(FORGET_PASSWORD_FIELD_MANAGER)
-    const [checkEmptyRequiredFields, setCheckEmptyRequiredFields] = useState(false)
+    const [field, setField] = useState(FORGET_PASSWORD_FIELD)
+    const [checkEmptyRequiredFields, setCheckEmptyRequiredFields] = useState<boolean>(false)
     const [isForgotPasswordFailed, setIsForgotPasswordFailed] = useState(false)
 
     const updateFieldInfo = (isValid: boolean, value: string, index: number) => {
@@ -29,7 +29,7 @@ const ForgetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
     }
 
     const handleForgetPassword = () => {
-        if (field.every(Boolean)) {
+        if (field.every(element => { return element.isValid })) {
             loginService.forgotPassword(field[0].value).then(data => {
                 setTempLoginComp(LOGIN_TOGGLER_COMPS.restorationCode)
 

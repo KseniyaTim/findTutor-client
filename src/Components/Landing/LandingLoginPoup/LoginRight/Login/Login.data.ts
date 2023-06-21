@@ -7,6 +7,7 @@ export const LOGIN_POPUP_FIELDS: IField[] = [
         dbLabel: 'email',
         isRequired: true,
         value: '',
+        isValid: false,
         type: ''
     },
     {
@@ -15,17 +16,7 @@ export const LOGIN_POPUP_FIELDS: IField[] = [
         dbLabel: 'password',
         isRequired: true,
         value: '',
+        isValid: false,
         type: 'password'
     }
-]
-
-export const LOGIN_POPUP_FIELDS_MANAGER = [
-    {
-        isValid: false,
-        value: ''
-    },
-    {
-        isValid: false,
-        value: ''
-    },
 ]
