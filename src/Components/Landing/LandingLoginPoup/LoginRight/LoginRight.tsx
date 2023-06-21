@@ -20,7 +20,7 @@ import ResetPassword from './ResetPassword/ResetPassword';
 
 const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
 
-    const [TempLoginComp, setTempLoginComp] = useState<LOGIN_TOGGLER_COMPS_LITERALS>(LOGIN_TOGGLER_COMPS.login)
+    const [tempLoginComp, setTempLoginComp] = useState<LOGIN_TOGGLER_COMPS_LITERALS>(LOGIN_TOGGLER_COMPS.login)
 
     loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.login] = <Login setTempLoginComp={setTempLoginComp} />
     loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.forgotPassword] = <ForgetPassword setTempLoginComp={setTempLoginComp} />
@@ -36,7 +36,7 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
         <Grid item xs={6}>
             <S.RightCloseIcon className="material-symbols-outlined" onClick={handleClose}>close</S.RightCloseIcon>
             <S.RightContainer>
-                {loginTogglerCompsManager[TempLoginComp]}
+                {loginTogglerCompsManager[tempLoginComp]}
             </S.RightContainer>
         </Grid>
     );
