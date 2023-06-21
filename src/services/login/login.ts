@@ -17,5 +17,10 @@ export default {
         const { data } = await axiosInstanceNoToken.get("/")
         return data
     },
+    restorationCode: async (code: string) => {
+        const { data } = await axiosInstanceNoToken.get("/")
+        return data
+    },
+
 
 };

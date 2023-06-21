@@ -30,7 +30,7 @@ const RestorationCode: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
     const handleForgetPassword = () => {
         if (field.every(element => { return element.isValid })) {
-            loginService.forgotPassword(field[0].value).then(data => {
+            loginService.restorationCode(field[0].value).then(data => {
                 setTempLoginComp(LOGIN_TOGGLER_COMPS.resetPassword)
 
             }).catch(err => { setIsRestorationCodeWrong(true) })
