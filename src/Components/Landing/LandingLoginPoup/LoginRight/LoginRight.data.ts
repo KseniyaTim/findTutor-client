@@ -1,5 +1,3 @@
-
-
 export interface ILoginRightTogglers {
     setTempLoginComp: React.Dispatch<React.SetStateAction<LOGIN_TOGGLER_COMPS_LITERALS>>
 }

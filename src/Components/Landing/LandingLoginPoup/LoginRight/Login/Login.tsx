@@ -15,7 +15,7 @@ import LoginField from '../LoginField/LoginField';
 
 // consts
 import { LOGIN_POPUP_FIELDS, LOGIN_POPUP_FIELDS_MANAGER } from './Login.data';
-import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS, loginTogglerCompsManager } from '../LoginRight.data';
+import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS } from '../LoginRight.data';
 
 const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 

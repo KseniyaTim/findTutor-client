@@ -8,6 +8,8 @@ import { IFieldManager } from '../../ILandingLoginPopup';
 
 // utils
 import { checkValidaitons, isEmptyAndRequired } from '../../../../../utils/validations/funcs';
+
+// hooks
 import { useIsAfterFirstRender } from '../../../../../hooks/useIsAferFirstRender';
 
 const LoginField: FC<IFieldManager> = ({ field, updateFieldInfo, index, checkEmptyRequiredFields, type }) => {

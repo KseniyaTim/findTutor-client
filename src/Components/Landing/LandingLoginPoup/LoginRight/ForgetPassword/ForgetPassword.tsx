@@ -1,12 +1,18 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState } from 'react';
 
+// style
 import * as S from './ForgetPassword.style'
+
+// comps
 import LoginField from '../LoginField/LoginField';
 import LoginButton from '../LoginButton/LoginButton';
-import { FORGET_PASSWORD_FIELD, FORGET_PASSWORD_FIELD_MANAGER } from './ForgetPassword.data';
 
+// services
 import loginService from '../../../../../services/login/login'
-import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS, loginTogglerCompsManager } from '../LoginRight.data';
+
+// consts
+import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS } from '../LoginRight.data';
+import { FORGET_PASSWORD_FIELD, FORGET_PASSWORD_FIELD_MANAGER } from './ForgetPassword.data';
 
 const ForgetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
     const [field, setField] = useState(FORGET_PASSWORD_FIELD_MANAGER)
