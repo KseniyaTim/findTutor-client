@@ -52,7 +52,7 @@ const ForgetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
                 ))
             }
             {isForgotPasswordFailed && <S.RightForgotPasswordFailed>אימייל אינו קיים במערכת</S.RightForgotPasswordFailed>}
-            <LoginButton text='שלחו לי קוד לשחזור' execFunction={handleForgetPassword} />
+            <LoginButton text='שחזור סיסמא' execFunction={handleForgetPassword} />
         </>
     );
 };

@@ -23,7 +23,7 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
 
     loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.login] = <Login setTempLoginComp={setTempLoginComp} />
     loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.forgotPassword] = <ForgetPassword setTempLoginComp={setTempLoginComp} />
-    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.forgotPassword] = <RestorationCode setTempLoginComp={setTempLoginComp} />
+    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.restorationCode] = <RestorationCode setTempLoginComp={setTempLoginComp} />
 
     const handleClose = () => {
         setIsLoginPopupOpen(false);
