@@ -7,90 +7,31 @@ import { Grid } from '@mui/material';
 import * as S from './LoginRight.style'
 
 // consts
-import { LOGIN_POPUP_FIELDS, LOGIN_POPUP_FIELDS_MANAGER } from './LoginRight.data';
-
-// comps
-import LoginButton from './LoginButton/LoginButton';
-import LoginField from './LoginField/LoginField';
-
-// icons
-import google from '../../../../assets/images/login/google.png'
+import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS, LOGIN_TOGGLER_COMPS_LITERALS, loginTogglerCompsManager } from './LoginRight.data';
 
 // interfaces
 import { ILoginRight } from './ILoginRight';
-
-import loginService from '../../../../services/login/login'
+import Login from './Login/Login';
 import ForgetPassword from './ForgetPassword/ForgetPassword';
 
 const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
 
-    const [field, setField] = useState(LOGIN_POPUP_FIELDS_MANAGER)
-    const [checkEmptyRequiredFields, setCheckEmptyRequiredFields] = useState(false)
-    const [isLoginFailed, setIsLoginFailed] = useState(false)
 
-    const [displayToggler, setDisplayToggler] = useState(0)
+    const [TempLoginComp, setTempLoginComp] = useState<LOGIN_TOGGLER_COMPS_LITERALS>(LOGIN_TOGGLER_COMPS.login)
 
-    useEffect(() => {
-        setField(prev => {
-            const newIsFieldsValid = [...prev]
-            newIsFieldsValid.forEach((element, index) => {
-                element.isValid = !LOGIN_POPUP_FIELDS[index].isRequired
-            })
-            return newIsFieldsValid
-        });
-    }, [])
+    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.login] = <Login setTempLoginComp={setTempLoginComp} />
+    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.forgotPassword] = <ForgetPassword setTempLoginComp={setTempLoginComp} />
+
 
     const handleClose = () => {
         setIsLoginPopupOpen(false);
     };
 
-    const updateFieldInfo = (isValid: boolean, value: string, index: number) => {
-        setIsLoginFailed(false)
-        setField(prev => {
-            prev[index].isValid = isValid
-            prev[index].value = value
-            return [...prev]
-        })
-    }
-
-    const handleLogin = () => {
-        if (field.every(Boolean)) {
-            loginService.login(field[0].value, field[1].value).then(data => {
-
-            }).catch(err => { setIsLoginFailed(true) })
-        }
-        else {
-            setCheckEmptyRequiredFields(prevCheckEmpty => { return !prevCheckEmpty })
-        }
-    }
-
-    const handleForgetPassword = () => {
-        setDisplayToggler(1)
-    }
-
     return (
         <Grid item xs={6}>
             <S.RightCloseIcon className="material-symbols-outlined" onClick={handleClose}>close</S.RightCloseIcon>
             <S.RightContainer>
-                {displayToggler === 0 ? <>   <S.RightMainTitle>התחבר לחשבונך</S.RightMainTitle>
-                    <S.RightSecondaryTitle>אין לך חשבון? <S.RightSecondaryTitleJoinText>הצטרף כאן</S.RightSecondaryTitleJoinText></S.RightSecondaryTitle>
-                    {
-                        LOGIN_POPUP_FIELDS.map((element, index) => (
-                            <LoginField checkEmptyRequiredFields={checkEmptyRequiredFields}
-                                type={element.type}
-                                key={index} field={element} index={index} updateFieldInfo={updateFieldInfo}></LoginField>
-                        ))
-                    }
-                    <S.RightLoginForgetPassword onClick={() => { handleForgetPassword() }}>שכחתי סיסמה</S.RightLoginForgetPassword>
-                    {isLoginFailed && <S.RightLoginFailed>שם משתמש או סיסמא שגויים</S.RightLoginFailed>}
-                    <div onClick={() => { handleLogin() }}>
-                        <LoginButton text='התחבר'></LoginButton>
-                    </div>
-                    <S.RightSeperator>או</S.RightSeperator>
-                    <LoginButton text='התחבר עם גוגל' icon={google}></LoginButton>
-                </> : <>
-                    <ForgetPassword />
-                </>}
+                {loginTogglerCompsManager[TempLoginComp]}
             </S.RightContainer>
         </Grid>
     );

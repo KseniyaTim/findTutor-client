@@ -1,32 +1,17 @@
-import { IField } from "../ILandingLoginPopup";
 
-export const LOGIN_POPUP_FIELDS: IField[] = [
-    {
-        placeholder: 'כתובת מייל',
-        validationFuncs: [{ functionName: 'isEmailValid', errorMsg: 'כתובת אימייל אינה תקינה' }],
-        dbLabel: 'email',
-        isRequired: true,
-        value: '',
-        type: ''
-    },
-    {
-        placeholder: 'סיסמה',
-        validationFuncs: [],
-        dbLabel: 'password',
-        isRequired: true,
-        value: '',
-        type: 'password'
-    }
-]
 
-export const LOGIN_POPUP_FIELDS_MANAGER = [
-    {
-        isValid: false,
-        value: ''
-    },
-    {
-        isValid: false,
-        value: ''
-    },
-]
+export interface ILoginRightTogglers {
+    setTempLoginComp: React.Dispatch<React.SetStateAction<LOGIN_TOGGLER_COMPS_LITERALS>>
+}
 
+export enum LOGIN_TOGGLER_COMPS {
+    login = 'login',
+    forgotPassword = 'forgotPassword',
+    restorationCode = 'restorationCode',
+}
+
+export type LOGIN_TOGGLER_COMPS_LITERALS = keyof typeof LOGIN_TOGGLER_COMPS;
+
+export type loginTogglerCompsType = { [literal in LOGIN_TOGGLER_COMPS_LITERALS]: any };
+
+export const loginTogglerCompsManager: loginTogglerCompsType = {} as loginTogglerCompsType

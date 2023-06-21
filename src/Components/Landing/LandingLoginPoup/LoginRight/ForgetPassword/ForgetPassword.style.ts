@@ -14,3 +14,9 @@ export const InsertEmailTitle = styled('div')({
     fontWeight: 'bold',
     marginBottom: '1rem'
 });
+
+export const RightForgotPasswordFailed = styled('span')({
+    color: 'red',
+    fontSize: '0.75rem',
+    marginBottom: '1rem'
+});
