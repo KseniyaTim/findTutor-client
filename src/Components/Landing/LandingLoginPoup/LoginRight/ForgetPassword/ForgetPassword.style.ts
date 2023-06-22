@@ -8,7 +8,7 @@ export const BackToLoginPopup = styled('div')({
 });
 
 
-export const InsertEmailTitle = styled('div')({
+export const ForgotPasswordTitle = styled('div')({
     textAlign: 'right',
     fontSize: '1.25rem',
     fontWeight: 'bold',

@@ -1,6 +1,6 @@
 import { IField } from "../../ILandingLoginPopup"
 
-export const FORGET_PASSWORD_FIELD: IField[] = [
+export const FORGET_PASSWORD_FIELDS: IField[] = [
     {
         placeholder: 'כתובת מייל',
         validationFuncs: [{ functionName: 'isEmailValid', errorMsg: 'כתובת אימייל אינה תקינה' }],
