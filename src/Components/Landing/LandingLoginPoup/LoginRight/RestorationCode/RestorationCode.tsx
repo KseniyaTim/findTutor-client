@@ -12,8 +12,10 @@ import GenericLoginForm from '../GenericLoginForm/GenericLoginForm';
 
 const RestorationCode: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
-    const handleRestorationCode = () => {
-
+    const handleRestorationCode = async (code: string) => {
+        return await loginService.restorationCode(code).then((data) => {
+            return data
+        })
     }
 
     return (

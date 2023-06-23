@@ -35,7 +35,7 @@ const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
     const handleLogin = () => {
         if (field.every(element => { return element.isValid })) {
             loginService.login(field[0].value, field[1].value).then(data => {
-
+                // TODO: handle login success
             }).catch(err => { setIsLoginFailed(true) })
         }
         else {

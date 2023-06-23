@@ -29,7 +29,7 @@ const GenericLoginForm: FC<IGenericLoginForm> = ({ backButtonTitle, backCompType
     const handleClick = async () => {
         if (field.every(element => { return element.isValid })) {
             try {
-                await buttonFunc()
+                await buttonFunc(field[0].value, field[1].value)
                 nextComp && setTempLoginComp(nextComp)
             } catch (error) {
                 setIsFailed(true)

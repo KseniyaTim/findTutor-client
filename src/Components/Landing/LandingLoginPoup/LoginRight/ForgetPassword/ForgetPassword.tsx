@@ -12,8 +12,10 @@ import GenericLoginForm from '../GenericLoginForm/GenericLoginForm';
 
 const ForgetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
-    const handleForgetPassword = () => {
-
+    const handleForgetPassword = async (email: string) => {
+        return await loginService.forgotPassword(email).then((data) => {
+            return data
+        })
     }
 
     return (
