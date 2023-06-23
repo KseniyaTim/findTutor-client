@@ -12,4 +12,8 @@ export const RESTORATION_CODE_FIELD: IField[] = [
     },
 ]
 
-
+export const RESTORATION_CODE_INFO = {
+    ERROR_MSG: 'קוד שחזור שגוי',
+    BUTTON_TEXT: 'אישור',
+    MAIN_TITLE: 'הזן קוד שחזור',
+}

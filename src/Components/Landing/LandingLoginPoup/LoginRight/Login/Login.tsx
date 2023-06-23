@@ -14,9 +14,8 @@ import LoginButton from '../LoginButton/LoginButton';
 import LoginField from '../LoginField/LoginField';
 
 // consts
-import { LOGIN_POPUP_FIELDS } from './Login.data';
+import { LOGIN_INFO, LOGIN_POPUP_FIELDS } from './Login.data';
 import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS } from '../LoginRight.data';
-import { LOGIN } from '../../../../../consts/login';
 
 const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
@@ -46,10 +45,10 @@ const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
     return (
         <>
-            <S.RightMainTitle>{LOGIN.MAIN_TITLE}</S.RightMainTitle>
+            <S.RightMainTitle>{LOGIN_INFO.MAIN_TITLE}</S.RightMainTitle>
             <S.RightSecondaryTitle>
-                {LOGIN.SECONDARY_TITLE}
-                <S.RightSecondaryTitleJoinText>{LOGIN.SECONDARY_TITLE_LINK}</S.RightSecondaryTitleJoinText>
+                {LOGIN_INFO.SECONDARY_TITLE}
+                <S.RightSecondaryTitleJoinText>{LOGIN_INFO.SECONDARY_TITLE_LINK}</S.RightSecondaryTitleJoinText>
             </S.RightSecondaryTitle>
             {
                 LOGIN_POPUP_FIELDS.map((element, index) => (
@@ -59,12 +58,12 @@ const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
                 ))
             }
             <S.RightLoginForgetPassword onClick={() => { setTempLoginComp(LOGIN_TOGGLER_COMPS.forgotPassword) }}>
-                {LOGIN.FORGOT_PASSWORD}
+                {LOGIN_INFO.FORGOT_PASSWORD}
             </S.RightLoginForgetPassword>
-            {isLoginFailed && <S.RightLoginFailed>{LOGIN.ERROR_MSG}</S.RightLoginFailed>}
-            <LoginButton text={LOGIN.BUTTON_TEXT} execFunction={handleLogin}></LoginButton>
+            {isLoginFailed && <S.RightLoginFailed>{LOGIN_INFO.ERROR_MSG}</S.RightLoginFailed>}
+            <LoginButton text={LOGIN_INFO.BUTTON_TEXT} execFunction={handleLogin}></LoginButton>
             <S.RightSeperator>או</S.RightSeperator>
-            <LoginButton text={LOGIN.GOOGLE_BUTTON_TEXT} icon={google}></LoginButton>
+            <LoginButton text={LOGIN_INFO.GOOGLE_BUTTON_TEXT} icon={google}></LoginButton>
         </>
     );
 };
