@@ -37,7 +37,20 @@ export const textFieldsFuncValidators: fieldsValidatorsManager = {
     },
     isEmailValid(textToCheck: string): boolean {
         return /^[\w.%+-]+@[A-Za-z0-9.-]+\.(?:[A-Za-z]{2,}|il)$/.test(textToCheck)
-    }
+    },
+    oneUpperCaseLetter(textToCheck: string): boolean {
+        return /^[A-Z]+$/.test(textToCheck)
+    },
+    oneDigit(textToCheck: string): boolean {
+        return /\d+/.test(textToCheck)
+    },
+    oneLowerCaseLetter(textToCheck: string): boolean {
+        return /^[a-z]+$/.test(textToCheck)
+    },
+    specialChar(textToCheck: string): boolean {
+        return /[!@#$%^&*(),.?":{}|<>]/.test(textToCheck)
+    },
+
 };
 
 export const checkValidaitons = (textValue: string, validators: IFieldValidators[]) => {

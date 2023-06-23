@@ -1,22 +1,13 @@
+import { PASSWORD_FIELD } from "../../../../../consts/login"
 import { IField } from "../../ILandingLoginPopup"
 
 export const RESET_PASSWORD_FIELDS: IField[] = [
     {
         placeholder: 'סיסמה חדשה',
-        validationFuncs: [],
-        dbLabel: 'password',
-        isRequired: true,
-        value: '',
-        isValid: false,
-        type: ''
+        ...PASSWORD_FIELD
     },
     {
         placeholder: 'אמת סיסמה',
-        validationFuncs: [],
-        dbLabel: 'password',
-        isRequired: true,
-        value: '',
-        isValid: false,
-        type: 'password'
+        ...PASSWORD_FIELD
     }
 ]

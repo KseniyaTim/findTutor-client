@@ -1,3 +1,4 @@
+import { PASSWORD_FIELD } from "../../../../../consts/login"
 import { IField } from "../../ILandingLoginPopup"
 
 export const LOGIN_POPUP_FIELDS: IField[] = [
@@ -12,11 +13,6 @@ export const LOGIN_POPUP_FIELDS: IField[] = [
     },
     {
         placeholder: 'סיסמה',
-        validationFuncs: [],
-        dbLabel: 'password',
-        isRequired: true,
-        value: '',
-        isValid: false,
-        type: 'password'
-    }
+        ...PASSWORD_FIELD
+    },
 ]

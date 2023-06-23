@@ -8,6 +8,10 @@ export enum FIELDS_VALIDATORS_FUNCTIONS {
     required = 'required',
     isIdValid = 'isIdValid',
     phoneNumber = 'phone_number',
+    oneUpperCaseLetter = 'oneUpperCaseLetter',
+    oneLowerCaseLetter = 'oneLowerCaseLetter',
+    oneDigit = 'oneDigit',
+    specialChar = 'specialChar',
     onlyHebrewAndDigits = 'onlyHebrewAndDigits',
     isEmailValid = 'isEmailValid',
 }
