@@ -16,6 +16,7 @@ import LoginField from '../LoginField/LoginField';
 // consts
 import { LOGIN_POPUP_FIELDS } from './Login.data';
 import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS } from '../LoginRight.data';
+import { LOGIN } from '../../../../../consts/login';
 
 const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
@@ -45,8 +46,11 @@ const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
     return (
         <>
-            <S.RightMainTitle>התחבר לחשבונך</S.RightMainTitle>
-            <S.RightSecondaryTitle>אין לך חשבון? <S.RightSecondaryTitleJoinText>הצטרף כאן</S.RightSecondaryTitleJoinText></S.RightSecondaryTitle>
+            <S.RightMainTitle>{LOGIN.MAIN_TITLE}</S.RightMainTitle>
+            <S.RightSecondaryTitle>
+                {LOGIN.SECONDARY_TITLE}
+                <S.RightSecondaryTitleJoinText>{LOGIN.SECONDARY_TITLE_LINK}</S.RightSecondaryTitleJoinText>
+            </S.RightSecondaryTitle>
             {
                 LOGIN_POPUP_FIELDS.map((element, index) => (
                     <LoginField checkEmptyRequiredFields={checkEmptyRequiredFields}
@@ -54,11 +58,13 @@ const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
                         key={index} field={element} index={index} updateFieldInfo={updateFieldInfo}></LoginField>
                 ))
             }
-            <S.RightLoginForgetPassword onClick={() => { setTempLoginComp(LOGIN_TOGGLER_COMPS.forgotPassword) }}>שכחתי סיסמה</S.RightLoginForgetPassword>
-            {isLoginFailed && <S.RightLoginFailed>שם משתמש או סיסמא שגויים</S.RightLoginFailed>}
-            <LoginButton text='התחבר' execFunction={handleLogin}></LoginButton>
+            <S.RightLoginForgetPassword onClick={() => { setTempLoginComp(LOGIN_TOGGLER_COMPS.forgotPassword) }}>
+                {LOGIN.FORGOT_PASSWORD}
+            </S.RightLoginForgetPassword>
+            {isLoginFailed && <S.RightLoginFailed>{LOGIN.ERROR_MSG}</S.RightLoginFailed>}
+            <LoginButton text={LOGIN.BUTTON_TEXT} execFunction={handleLogin}></LoginButton>
             <S.RightSeperator>או</S.RightSeperator>
-            <LoginButton text='התחבר עם גוגל' icon={google}></LoginButton>
+            <LoginButton text={LOGIN.GOOGLE_BUTTON_TEXT} icon={google}></LoginButton>
         </>
     );
 };

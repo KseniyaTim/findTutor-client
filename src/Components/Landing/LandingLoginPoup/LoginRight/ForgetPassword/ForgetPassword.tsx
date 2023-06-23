@@ -13,6 +13,8 @@ import loginService from '../../../../../services/login/login'
 // consts
 import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS } from '../LoginRight.data';
 import { FORGET_PASSWORD_FIELDS } from './ForgetPassword.data';
+import GenericLoginForm from '../GenericLoginForm/GenericLoginForm';
+import { FORGOT_PASSWORD } from '../../../../../consts/login';
 
 const ForgetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
     const [field, setField] = useState(FORGET_PASSWORD_FIELDS)
@@ -29,31 +31,22 @@ const ForgetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
     }
 
     const handleForgetPassword = () => {
-        if (field.every(element => { return element.isValid })) {
-            loginService.forgotPassword(field[0].value).then(data => {
-                setTempLoginComp(LOGIN_TOGGLER_COMPS.restorationCode)
-
-            }).catch(err => { setIsForgotPasswordFailed(true) })
-        }
-        else {
-            setCheckEmptyRequiredFields(prevCheckEmpty => { return !prevCheckEmpty })
-        }
+        loginService.forgotPassword(field[0].value).then(data => {
+            setTempLoginComp(LOGIN_TOGGLER_COMPS.restorationCode)
+        })
     }
 
     return (
-        <>
-            <S.BackToLoginPopup onClick={() => { setTempLoginComp(LOGIN_TOGGLER_COMPS.login) }}>חזור</S.BackToLoginPopup>
-            <S.ForgotPasswordTitle>הזן כתובת מייל לשחזור</S.ForgotPasswordTitle>
-            {
-                FORGET_PASSWORD_FIELDS.map((element, index) => (
-                    <LoginField checkEmptyRequiredFields={checkEmptyRequiredFields}
-                        type={element.type}
-                        key={index} field={element} index={index} updateFieldInfo={updateFieldInfo}></LoginField>
-                ))
-            }
-            {isForgotPasswordFailed && <S.RightForgotPasswordFailed>אימייל אינו קיים במערכת</S.RightForgotPasswordFailed>}
-            <LoginButton text='שחזור סיסמא' execFunction={handleForgetPassword} />
-        </>
+        <GenericLoginForm backButtonTitle={FORGOT_PASSWORD.BACK_BUTTON_TITLE}
+            backCompType={LOGIN_TOGGLER_COMPS.login}
+            title={FORGOT_PASSWORD.TITLE}
+            errorMsg={FORGOT_PASSWORD.ERROR_MSG}
+            fields={FORGET_PASSWORD_FIELDS}
+            nextComp={LOGIN_TOGGLER_COMPS.restorationCode}
+            setTempLoginComp={setTempLoginComp}
+            buttonText={FORGOT_PASSWORD.BUTTON_TEXT}
+            buttonFunc={handleForgetPassword}
+        />
     );
 };
 
